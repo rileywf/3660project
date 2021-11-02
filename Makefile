@@ -4,6 +4,8 @@ public_directory = /home/$(userAccount)/public_html/
 #directory = /home/$(userAccount)/Documents/3660project/
 directory = /home/3660project/
 
+.PHONY: test
+
 test:
 		phpunit -v tests
 deploy:
