@@ -1,5 +1,4 @@
 <?php
-phpinfo();
     #$conn = new mysqli("vconroy.cs.uleth.ca", $_POST["username"], $_POST["password"]);
     $conn = new mysqli("localhost", $_POST["username"], $_POST["password"]);
     if($conn->connect_errno) {
