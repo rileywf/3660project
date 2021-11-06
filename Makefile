@@ -7,7 +7,7 @@ directory = /home/$(userAccount)/3660project/
 .PHONY: test
 
 test:
-		phpunit -v tests
+		#phpunit -v tests
 deploy:
 	if [ ! -d $(public_directory) ]; then \
 		mkdir $(public_directory); \
