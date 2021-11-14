@@ -6,7 +6,7 @@
     $conn = new mysqli("vconroy.cs.uleth.ca",$username,$password,$username);
     if($mysqli->connect_errno) {
       echo "Connection Error!";
-      exit;ute
+      exit;
 
     }
     $sql = "insert into ROUTES(typesOfTrain, name) values
