@@ -12,7 +12,7 @@
     }
 
     $sql = "query into ROUTES(id,name,typesOfTrain) values
-            ('$_POST[rname]','$_POST[IDname]','$_POST[sname]')";
+            ('$_POST[IDname]','$_POST[rname]','$_POST[sname]')";
   
     if($conn->query($sql)) {
       echo "<h3>Route Found!</h3>";
