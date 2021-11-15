@@ -55,7 +55,7 @@ CREATE TABLE `CONDUCTOR` (
   `phoneNum` int(11) DEFAULT NULL,
   `condName` char(255) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
-  `Certification` ENUM (`Yes`, `No`) DEFAULT NULL,
+  `Certification` enum('Yes','No') DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `rID` (`rID`),
   CONSTRAINT `CONDUCTOR_ibfk_1` FOREIGN KEY (`rID`) REFERENCES `TRAIN` (`ID`)
@@ -108,7 +108,7 @@ CREATE TABLE `STATION` (
   `operatingTime` int(11) DEFAULT NULL,
   `stationName` char(255) DEFAULT NULL,
   `location` char(255) DEFAULT NULL,
-  `Type` ENUM (`Cargo`, `Passanger`) DEFAULT NULL,
+  `Type` enum('Cargo', 'Passanger') DEFAULT NULL,
   PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -156,8 +156,8 @@ DROP TABLE IF EXISTS `TRAIN`;
 CREATE TABLE `TRAIN` (
   `ID` int(11) NOT NULL,
   `rID` int(11) DEFAULT NULL,
-  `Fuel` ENUM (`Diesel`, `Electric`) DEFAULT NULL,
-  `Type` ENUM (`Carrgo`, `Passenger`) DEFAULT NULL,
+  `Fuel` enum('Diesel', 'Electric') DEFAULT NULL,
+  `Type` enum('Cargo', 'Passenger') DEFAULT NULL,
   `passenger_capacity` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `rID` (`rID`),
