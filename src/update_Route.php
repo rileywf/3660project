@@ -1,11 +1,31 @@
 <html>
-	<h1>Update Route</h1>
-	<body>
-	<h2>Specify What Route to Update</h2>
-		<form action="updateRoute.php" method=post>
-		Specify Route Name: <input type=text name="rname" size=20><br><br>
-		Specify Supported Trains: <input type=text name="sname" size=20><br><br>
-		Specify Route ID: <input type=text name="IDname" size=20><br><br>	
-		<input type=submit name="Submit" value="Update Route"></form>
-	</body>
-</html> 
+  <head>
+    <title> Railroad System </title>
+  </head>
+  <body>
+    <?php
+      if(isset($_COOKIE["username"])) {
+        echo "<form action=\"updateRoute.php\" method=post>";
+        $username = $_COOKIE["username"];
+        $password = $_COOKIE["password"];
+        $conn = new mysqli("vconroy.cs.uleth.ca",$username,$password,$username);
+
+        $sql = "select name from ROUTES";
+        $result = $conn->query($sql);
+        if($result->num_rows != 0) {
+          echo "<h3>Railroad Routes <select name=\"name\">";
+          while($val = $result->fetch_assoc()) {
+            echo "<option value='$val[name]'>$val[name]</option>";
+          }
+          echo "</select>";
+          echo "<input type=submit name=\"submit\" value=\"View\">";
+        } else {
+          echo "<p>No data in ROUTES</p>";
+        }
+        echo "</form>";
+      } else {
+        echo "<h3>You are not logged in!</h3><p> <a href=\"index.php\">Login First</a></p>";
+      }
+     ?>
+   </body>
+ </html>

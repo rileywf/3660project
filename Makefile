@@ -2,7 +2,7 @@ userAccount = wear3660
 
 public_directory = /home/$(userAccount)/public_html/
 #directory = /home/$(userAccount)/Documents/3660project/
-directory = /home/$(userAccount)/3660project/
+directory = /home/$(userAccount)/project/
 
 .PHONY: test
 
