@@ -1,4 +1,5 @@
 <?php
+
 if(isset($_COOKIE["username"])) {
   $username = $_COOKIE["username"];
   $password = $_COOKIE["password"];
