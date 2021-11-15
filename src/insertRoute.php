@@ -9,8 +9,8 @@
       exit;
 
     }
-    $sql = "insert into ROUTES(typesOfTrain, name) values
-            ('$_POST[sname]','$_POST[rname]')";
+    $sql = "insert into ROUTES(typesOfTrain, name, ID) values
+            ('$_POST[sname]','$_POST[rname]','$_POST[IDname]')";
     if($conn->query($sql)) {
       echo "<h3>Route Added!</h3>";
     } else {
