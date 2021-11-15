@@ -15,7 +15,6 @@
 	    where name='$_POST[rname]'
 	    and typesOfTrain='$_POST[sname]'
 	    and ID='$_POST[IDname]'";
-           // ('$_POST[IDname]','$_POST[rname]','$_POST[sname]')"; '
   
     if($conn->query($sql)) {
       echo "<h3>Route Found! Here are the Details</h3>";
