@@ -80,7 +80,8 @@ DROP TABLE IF EXISTS `ROUTES`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ROUTES` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `typesOfTrain` char(250) DEFAULT NULL,
+  /*`typesOfTrain` char(250) DEFAULT NULL,*/
+  `typesOfTrain` enum('Cargo', 'Passanger') DEFAULT NULL,
   `name` char(120) DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
