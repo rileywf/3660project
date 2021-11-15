@@ -10,7 +10,7 @@
         $conn = new mysqli("vconroy.cs.uleth.ca",$username,$password,$username);
 
         echo "<form action=\"deleteRoute.php\" method=post>";
-        $sql "select name from ROUTES";
+        $sql=  "select name from ROUTES";
         $result = $conn->query($sql);
         if($result->num_rows != 0) {
           echo "Route Name: <select name=\"name\">";
