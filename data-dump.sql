@@ -55,7 +55,7 @@ CREATE TABLE `CONDUCTOR` (
   `phoneNum` int(11) DEFAULT NULL,
   `condName` char(255) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
-  `Certification` ENUM (`Yes`, `No`) DEFAULT NULL,
+  `Certification` ENUM (`Has`, `Doesn't`) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `rID` (`rID`),
   CONSTRAINT `CONDUCTOR_ibfk_1` FOREIGN KEY (`rID`) REFERENCES `TRAIN` (`ID`)
