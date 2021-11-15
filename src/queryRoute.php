@@ -10,15 +10,20 @@
       echo "Connection Error!";
       exit;
     }
-
-    $sql = "query into ROUTES(id,name,typesOfTrain) values
-            ('$_POST[IDname]','$_POST[rname]','$_POST[sname]')";
+  
+    $sql = "select * from ROUTES 
+	    where name='$_POST[rname]'
+	    and typesOfTrain='$_POST[sname]'";
+           // ('$_POST[IDname]','$_POST[rname]','$_POST[sname]')"; AND IDname='$_POST[IDname]'
   
     if($conn->query($sql)) {
-      echo "<h3>Route Found!</h3>";
+      echo "<h3>Route Found! Here are the Details</h3>";
+      echo "<td>$rec[rname]</td>";
+      echo "<td>$rec[IDname]</td>";
+      echo "<td>$rec[sname]</td>";
     } else {
       $err = $conn->errono;
-      echo "<p> MySQL error: $err </p>";
+      printf("error: %d", $err);
     }
     echo "<a href=\"main.php\">Return</a> to Home Page.";
   } else {
