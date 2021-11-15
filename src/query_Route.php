@@ -9,9 +9,13 @@
 		<option value="Cargo">Cargo</option>
 		<option value="Passanger">Passanger</option>
 	</select> <br> <br>
-	
+
 		Route ID: <input type=text name="IDname" size=20><br><br>
 
 		<input type=submit name="Submit" value="Query"></form>
+
+		<form action="queryRoute2.php" method=post>
+			<input type=submit value="All"></form>
+
 	</body>
 </html>
