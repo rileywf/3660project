@@ -6,6 +6,6 @@
 		Specify Route Name: <input type=text name="rname" size=20><br><br>
 		Specify Supported Trains: <input type=text name="sname" size=20><br><br>
 		Specify Route ID: <input type=text name="IDname" size=20><br><br>	
-		<input type=submit name="Submit" value="Query"></form>
+		<input type=submit name="Submit" value="Update Route"></form>
 	</body>
 </html> 
