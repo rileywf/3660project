@@ -4,7 +4,7 @@ $username = $_COOKIE["username"];
 $password = $_COOKIE["password"];
 
 $conn = new mysqli("vconroy.cs.uleth.ca",$username,$password,$username);
-$sql = "update ROUTE set name='$_POST[rname]', where name='$_POST[oldname]'"; 
+$sql = "update ROUTES set name='$_POST[rname]', where name='$_POST[oldname]'"; 
 
 echo $sql;
 
