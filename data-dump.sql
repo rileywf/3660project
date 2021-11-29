@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `Apart_Of`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Apart_Of` (
   `ID` int(11) NOT NULL,
-  `name` int(11) DEFAULT NULL,
+  `name` char(255) NOT NULL,
   `stationNumber` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `name` (`name`),
@@ -104,9 +104,9 @@ DROP TABLE IF EXISTS `STATION`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `STATION` (
-  `name` int(11) NOT NULL,
-  `operatingTime` int(11) DEFAULT NULL,
-  `stationName` char(255) DEFAULT NULL,
+  `name` char(255) NOT NULL,
+  `openingTime` int(11) DEFAULT NULL,
+  `closingTime` int(11) DEFAULT NULL,
   `location` char(255) DEFAULT NULL,
   `Type` enum('Cargo', 'Passanger') DEFAULT NULL,
   PRIMARY KEY (`name`)
