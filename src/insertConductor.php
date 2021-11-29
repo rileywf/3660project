@@ -9,14 +9,14 @@
       exit;
 
     }
-    $sql = "insert into TRAIN(ID, rID, Fuel, Type, passenger_capacity) values
-            ('$_POST[idname]','$_POST[rid]','$_POST[Fuel]','$_POST[Type]','$_POST[pasg]')";
+    $sql = "insert into CONDUCTOR(ID, rID, PhoneNum, condName, age, Certification) values
+            ('$_POST[IDname]','$_POST[rid]','$_POST[PN]','$_POST[Cname]','$_POST[age]','$_POST[Cert]')";
     if($conn->query($sql)) {
-      echo "<h3>Train Added!</h3>";
+      echo "<h3>Conductor Added!</h3>";
     } else {
       $err = $conn->errono;
       if($err == 1062) {
-        echo "<p>Train already Exists!</p>";
+        echo "<p>Conductor already Exists!</p>";
       } else {
         echo "<p> MySQL error: $err </p>";
       }

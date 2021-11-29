@@ -9,8 +9,6 @@
         <option value="Cargo">Cargo</option>
         <option value="Passanger">Passanger</option>
       </select> <br> <br>
-
-	ID of Route: <input type=text name="IDname" size=20><br><br>
         <input type=submit name="Submit" value="Insert"></form>
     </body>
 </html>

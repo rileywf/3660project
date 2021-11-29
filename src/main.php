@@ -4,6 +4,7 @@
     <h2> Insert </h2>
     <ul>
         <li><a href="insert_train.php">Insert a Train</a></li>
+        <li><a href="insert_Conductor.php">Insert a Conductor</a></li>
         <li><a href="insert_Route.php">Insert a Route</a></li>
     </ul>
 

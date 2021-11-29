@@ -50,7 +50,7 @@ DROP TABLE IF EXISTS `CONDUCTOR`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `CONDUCTOR` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `rID` int(11) DEFAULT NULL,
   `phoneNum` int(11) DEFAULT NULL,
   `condName` char(255) DEFAULT NULL,
@@ -154,7 +154,7 @@ DROP TABLE IF EXISTS `TRAIN`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `TRAIN` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `rID` int(11) DEFAULT NULL,
   `Fuel` enum('Diesel', 'Electric') DEFAULT NULL,
   `Type` enum('Cargo', 'Passenger') DEFAULT NULL,
