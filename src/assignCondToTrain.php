@@ -12,8 +12,7 @@ if(isset($_COOKIE["username"])) {
     $err = $conn->errno;
     $errtext = $conn->error;
     if($err == 1451) {
-      echo "<h3>Cannot delete Route $_POST[name]!</h3>";
-      echo "One or more of $_POST[name] has trains or conductors assigned to them.";
+      echo "<h3>One or more of $_POST[name] has trains or conductors assigned to them.</h3>";
     } else {
       echo "You got error code of $err. $errtext";
     }
