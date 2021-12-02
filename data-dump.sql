@@ -132,6 +132,7 @@ DROP TABLE IF EXISTS `TIMES`;
 CREATE TABLE `TIMES` (
   `ID` int(11) NOT NULL,
   `times` int(11) DEFAULT NULL,
+  `arrivesTimes` char(255) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   CONSTRAINT `TIMES_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `ROUTES` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -156,7 +157,6 @@ DROP TABLE IF EXISTS `TRAIN`;
 CREATE TABLE `TRAIN` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `rID` int(11) DEFAULT NULL,
-  `name` char(255) DEFAULT NULL,
   `Fuel` enum('Diesel', 'Electric') DEFAULT NULL,
   `Type` enum('Cargo', 'Passenger') DEFAULT NULL,
   `passenger_capacity` int(11) DEFAULT NULL,

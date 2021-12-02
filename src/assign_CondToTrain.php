@@ -11,26 +11,27 @@
       $conn = new mysqli("vconroy.cs.uleth.ca",$username,$password,$username);
 
       echo "<form action=\"assignCondToTrain.php\" method=post>";
-      $sql=  "select condName from CONDUCTOR";
+
+      $sql=  "select ID from TRAIN";
       $result = $conn->query($sql);
       if($result->num_rows != 0) {
-        echo "Conductor Name: <select name=\"name\">";
+        echo "Train ID: <select name=\"ID\">";
         while($val = $result->fetch_assoc()) {
-          echo "<option value='$val[name]'>$val[name]</option>";
+          echo "<option value='$val[ID]'>$val[ID]</option>";
         }
         echo "</select><br><br>";
       }
 
-        $sql2=  "select ID from TRAIN";
-        $result2 = $conn->query($sql2);
-        if($resul2t->num_rows != 0) {
-          echo "Train ID: <select name=\"id\">";
-          while($val = $result->fetch_assoc()) {
-            echo "<option value='$val[id]'>$val[id]</option>";
-          }
-          echo "</select><br><br>";
-
+      $sql2=  "select condName from CONDUCTOR";
+      $result2 = $conn->query($sql2);
+      if($result->num_rows != 0) {
+        echo "Conductor Name: <select name=\"condName\">";
+        while($val2 = $result2->fetch_assoc()) {
+          echo "<option value='$val2[condName]'>$val2[condName]</option>";
+        }
+        echo "</select><br><br>";
       }
+
       echo "<input type=submit name=\"Submit\" value=\"Insert\">";
       echo "</form>";
     } else {

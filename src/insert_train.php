@@ -5,39 +5,24 @@
   </head>
   <h1>Add a new Train</h1>
   <body>
-    <?php
-      if(isset($_COOKIE["username"])) {
-        $username = $_COOKIE["username"];
-        $password = $_COOKIE["password"];
-        $conn = new mysqli("vconroy.cs.uleth.ca",$username,$password,$username);
 
-        echo "<form action=\"insertTrain.php\" method=post>";
-        $sql=  "select name from ROUTES";
-        $result = $conn->query($sql);
-        if($result->num_rows != 0) {
-          echo "Name of Train: <input type=text name=\"name\" value=\"\" size=20><br><br>";
-          echo "<label for=\"Fuel\">Choose a Train fuel type:</label>";
-          echo "<select name=\"Fuel\" id=\"Fuel\">";
-          echo "<option value=\"Diesel\">Diesel</option>";
-          echo "<option value=\"Electric\">Electric</option>";
-          echo "</select> <br> <br>";
+       <form action="insertTrain.php" method=post>
 
-          echo "<label for=\"Type\">Choose a Train type:</label>";
-          echo "<select name=\"Type\" id=\"Type\">";
-          echo "<option value=\"Cargo\">Cargo</option>";
-          echo "<option value=\"Passanger\">Passanger</option>";
-          echo "</select> <br> <br>";
+         <label for="Fuel">Choose a Train fuel type:</label>
+         <select name="Fuel" id="Fuel">
+         <option value="Diesel">Diesel</option>
+         <option value="Electric">Electric</option>
+         </select> <br> <br>
 
-          echo "Passanger Capacity: <input type=text name=\"pasg\" value=\"\" size=20><br><br>";
+         <label for="Type">Choose a Train type:</label>
+         <select name="Type" id="Type">
+         <option value="Cargo">Cargo</option>
+         <option value="Passanger">Passanger</option>
+         </select> <br> <br>
 
-          echo "<input type=submit name=\"Submit\" value=\"Insert\">";
-        } else {
-          echo "<p> ERROR, ENTER SOME DATA</p>";
-        }
-        echo "</form>";
-      } else {
-        echo "<h3>You are not logged in!</h3><p> <a href=\"index.php\">Login First</a></p>";
-      }
-     ?>
+         Passanger Capacity: <input type=text name="pasg" value="" size=20><br><br>
+
+         <input type=submit name="Submit" value="Insert">
+
   </body>
 </html>

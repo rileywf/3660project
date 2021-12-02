@@ -5,7 +5,7 @@ if(isset($_COOKIE["username"])) {
   $password = $_COOKIE["password"];
   $conn = new mysqli("vconroy.cs.uleth.ca",$username,$password,$username);
 
-  $sql = "update CONDUCTOR set rid =''$_POST[id]' where name='$_POST[name]'";
+  $sql = "update CONDUCTOR set rid ='$_POST[ID]' where condName ='$_POST[condName]'";
   if($conn->query($sql)) {
     echo "<h3>Added Conductor to train!</h3>";
   } else {
