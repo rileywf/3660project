@@ -11,7 +11,9 @@
 
     <h2> Assign </h2>
     <ul>
-        <li><a href="assign_CondToTrain.php">Assign a Conductor to Train</a></li>
+        <li><a href="assign_CondToTrain.php">Assign a Conductor to a Train</a></li>
+        <li><a href="assign_TrainToRoute.php">Assign a Train to a Route</a></li>
+          <li><a href="assign_StationToRoute.php">Assign a Station to a Route</a></li>
     </ul>
 
     <h2> Search </h2>
