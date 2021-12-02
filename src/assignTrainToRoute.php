@@ -5,7 +5,7 @@ if(isset($_COOKIE["username"])) {
   $password = $_COOKIE["password"];
   $conn = new mysqli("vconroy.cs.uleth.ca",$username,$password,$username);
 
-  $sql = "update TRAIN set rID ='$_POST[ID]' where ID ='$_POST[ID2]'";
+  $sql = "update TRAIN set rID ='$_POST[ID2]' where ID ='$_POST[ID]'";
   if($conn->query($sql)) {
     echo "<h3>Added Train to Route!</h3>";
   } else {
