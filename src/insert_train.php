@@ -15,13 +15,7 @@
         $sql=  "select name from ROUTES";
         $result = $conn->query($sql);
         if($result->num_rows != 0) {
-          echo "Route Name: <select name=\"name\">";
-          while($val = $result->fetch_assoc()) {
-            $sql2 = "select name from ROUTES where \"$val[name]\"]";
-            echo "<option value='$val[sql2]'>$val[name]</option>";
-          }
-          echo "</select><br><br>";
-
+          echo "Name of Train: <input type=text name=\"name\" value=\"\" size=20><br><br>";
           echo "<label for=\"Fuel\">Choose a Train fuel type:</label>";
           echo "<select name=\"Fuel\" id=\"Fuel\">";
           echo "<option value=\"Diesel\">Diesel</option>";

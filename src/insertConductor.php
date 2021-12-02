@@ -9,8 +9,8 @@
       exit;
 
     }
-    $sql = "insert into CONDUCTOR(ID, rID, PhoneNum, condName, age, Certification) values
-            ('$_POST[IDname]','$_POST[rid]','$_POST[PN]','$_POST[Cname]','$_POST[age]','$_POST[Cert]')";
+    $sql = "insert into CONDUCTOR(ID, PhoneNum, condName, age, Certification) values
+            ('$_POST[IDname]','$_POST[PN]','$_POST[Cname]','$_POST[age]','$_POST[Cert]')";
     if($conn->query($sql)) {
       echo "<h3>Conductor Added!</h3>";
     } else {

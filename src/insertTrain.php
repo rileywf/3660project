@@ -9,8 +9,8 @@
       exit;
 
     }
-    $sql = "insert into TRAIN(ID, rID, Fuel, Type, passenger_capacity) values
-            ('$_POST[idname]','$_POST[sql2]','$_POST[Fuel]','$_POST[Type]','$_POST[pasg]')";
+    $sql = "insert into TRAIN(ID, name, Fuel, Type, passenger_capacity) values
+            ('$_POST[idname]','$_POST[name]','$_POST[Fuel]','$_POST[Type]','$_POST[pasg]')";
     if($conn->query($sql)) {
       echo "<h3>Train Added!</h3>";
     } else {

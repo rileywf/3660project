@@ -9,7 +9,12 @@
         <li><a href="insert_Station.php">Insert a Station</a></li>
     </ul>
 
-    <h2> Query </h2>
+    <h2> Assign </h2>
+    <ul>
+        <li><a href="assign_CondToTrain.php">Assign a Conductor to Train</a></li>
+    </ul>
+
+    <h2> Search </h2>
     <ul>
         <li><a href="query_Route.php">Query a Route</a></li><br><br>
     </ul>

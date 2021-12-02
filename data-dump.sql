@@ -156,6 +156,7 @@ DROP TABLE IF EXISTS `TRAIN`;
 CREATE TABLE `TRAIN` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `rID` int(11) DEFAULT NULL,
+  `name` char(255) DEFAULT NULL,
   `Fuel` enum('Diesel', 'Electric') DEFAULT NULL,
   `Type` enum('Cargo', 'Passenger') DEFAULT NULL,
   `passenger_capacity` int(11) DEFAULT NULL,
