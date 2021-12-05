@@ -15,10 +15,12 @@
     </ul>
     <h2> Search </h2>
     <ul>
-        <li><a href="query_Train.php">Query a Train</a></li><br><br>
-        <li><a href="query_Conductor.php">Query a Conductor</a></li><br><br>
-        <li><a href="query_Route.php">Query a Route</a></li><br><br>
-        <li><a href="query_Station.php">Query a Station</a></li><br><br>
+        <li><a href="query_Train.php">Query a Train</a></li>
+        <li><a href="query_Conductor.php">Query a Conductor</a></li>
+        <li><a href="query_Route.php">Query a Route</a></li>
+        <li><a href="query_Times.php">Query Route Times Tables</a></li>
+        <li><a href="query_Apart_Of.php">Query Stations Route Placements</a></li>
+        <li><a href="query_Station.php">Query a Station</a></li>
     </ul>
     <h2> Update </h2>
     <ul>
