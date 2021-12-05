@@ -91,7 +91,7 @@ CREATE TABLE `ROUTES` (
 
 LOCK TABLES `ROUTES` WRITE;
 /*!40000 ALTER TABLE `ROUTES` DISABLE KEYS */;
-INSERT INTO `ROUTES` VALUES (1,'Electric','RoutyRoute'),(2,'Ghost','Haunted Railway');
+INSERT INTO `ROUTES` VALUES (1,'Electric','RoutyRoute'),(2,'Ghost','Haunted Railway'), (3, 'Cargo', 'pls');
 /*!40000 ALTER TABLE `ROUTES` ENABLE KEYS */;
 UNLOCK TABLES;
 
