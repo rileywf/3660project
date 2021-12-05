@@ -23,5 +23,7 @@
 
     </form>
 
+    <a href="main.php">Return to homepage</a>
+
   </body>
 </html>

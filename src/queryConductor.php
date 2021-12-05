@@ -1,3 +1,8 @@
+<html>
+  <body>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 <?php
 
 if(isset($_COOKIE["username"])) {
@@ -21,8 +26,8 @@ if(isset($_COOKIE["username"])) {
     $cid = $_POST['cid'];
     $cphone = $_POST['cphone'];
     $cage = $_POST['cage'];
-    $routeid = $_POST['routeid'];
-    $cert = $_POST['certification']
+    $trainid = $_POST['trainid'];
+    $cert = $_POST['certification'];
 
 
     $condcounter = 0;
@@ -30,7 +35,7 @@ if(isset($_COOKIE["username"])) {
         //selection statment
     $sql = "select * from CONDUCTOR";
 
-    if(!empty($cname) or !empty($cid) or !empty($cphone) or !empty($cage) or !empty($cert))
+    if(!empty($cname) or !empty($cid) or !empty($cphone) or !empty($cage) or !empty($trainid) or !empty($cert))
     {
       $sql .= " where";
     }
@@ -97,37 +102,40 @@ if(isset($_COOKIE["username"])) {
 
         $result = $conn->query($sql);
 
-      if($conn->query($sql))
+        if($conn->query($sql))
         {
-      echo "<table border='1' style='width:100%'>
-      <tr>
-      <th>Name</th>
-      <th>ID</th>
-      <th>Phone Number</th>
-      <th>Age</th>
-      <th>Assigned Route</th>
-      <th>Certification</th>
-      </tr>";
+          echo "<table class=\"table table-striped table-hover\">";
+          echo "<thead><tr>";
+          echo "<th scope=\"col\">Name</th>";
+          echo "<th scope=\"col\">Conductor ID</th>";
+          echo "<th scope=\"col\">Phone Number</th>";
+          echo "<th scope=\"col\">Age</th>";
+          echo "<th scope=\"col\">Assigned Train</th>";
+          echo "<th scope=\"col\">Certified?</th>";
+          echo "</tr></thead>";
+          echo "<tbody>";
+        }
 
-    while($row = mysqli_fetch_array($result))
-    {
-      echo "<tr>";
-      echo "<td>" . $row['cname'] . "</td>";
-      echo "<td>" . $row['cid'] . "</td>";
-      echo "<td>" . $row['cphone'] . "</td>";
-      echo "<td>" . $row['cage'] . "</td>";
-      echo "<td>" . $row['routeid'] . "</td>";
-      echo "<td>" . $row['cert'] . "</td>";
-      echo "</tr>";
-    }
-    echo "</table>";
-  }
-  else
-  {
-    $err = $conn->errono;
-    printf("error: %d", $err);
-  }
-  echo "<a href=\"main.php\">Return to homepage</a>";
+        else {
+          $err = $conn->errono;
+          printf("error: %d", $err);
+        }
+
+        while($val = mysqli_fetch_array($result))
+        {
+          echo "<tr>";
+          echo "<th scope=\"row\">$val[condName]</th>";
+          echo "<td>$val[ID]</td>";
+          echo "<td>$val[phoneNum]</td>";
+          echo "<td>$val[age]</td>";
+          echo "<td>$val[tID]</td>";
+          echo "<td>$val[Certification]</td>";
+          echo "</tr>";
+        }
+
+        echo "</tbody>";
+        echo "</table>";
+        echo "<a href=\"query_Conductor.php\">Return to Conductor Query</a>";
 
 } else {
     echo "<h3>You are not logged in!</h3><p> <a href=\"index.php\">Login First</a></p>";

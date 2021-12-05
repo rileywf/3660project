@@ -1,3 +1,8 @@
+<html>
+  <body>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 <?php
 
 if(isset($_COOKIE["username"])) {
@@ -85,34 +90,36 @@ if(isset($_COOKIE["username"])) {
 
     if($conn->query($sql))
     {
-      echo "<table border='1' style='width:100%'>
-      <tr>
-      <th>Train ID</th>
-      <th>Route ID</th>
-      <th>Fuel</th>
-      <th>Type</th>
-      <th>Passenger Capacity</th>
-      </tr>";
+      echo "<table class=\"table table-striped table-hover\">";
+      echo "<thead><tr>";
+      echo "<th scope=\"col\">Train ID</th>";
+      echo "<th scope=\"col\">Route ID</th>";
+      echo "<th scope=\"col\">Fuel Type</th>";
+      echo "<th scope=\"col\">Type of Train</th>";
+      echo "<th scope=\"col\">Passenger Capacity</th>";
+      echo "</tr></thead>";
+      echo "<tbody>";
+    }
 
-    while($row = mysqli_fetch_array($result))
+    else {
+      $err = $conn->errono;
+      printf("error: %d", $err);
+    }
+
+    while($val = mysqli_fetch_array($result))
     {
       echo "<tr>";
-      echo "<td>" . $row['ID'] . "</td>";
-      echo "<td>" . $row['rID'] . "</td>";
-      echo "<td>" . $row['Fuel'] . "</td>";
-      echo "<td>" . $row['Type'] . "</td>";
-      echo "<td>" . $row['passenger_capacity'] . "</td>";
+      echo "<th scope=\"row\">$val[ID]</th>";
+      echo "<td>$val[rID]</td>";
+      echo "<td>$val[Fuel]</td>";
+      echo "<td>$val[Type]</td>";
+      echo "<td>$val[passenger_capacity]</td>";
       echo "</tr>";
     }
-    echo "</table>";
-  }
-  else
-  {
-    $err = $conn->errono;
-    printf("error: %d", $err);
-  }
-  echo "<a href=\"main.php\">Return to homepage</a>";
 
+    echo "</tbody>";
+    echo "</table>";
+    echo "<a href=\"query_Train.php\">Return to Train Query</a>";
 
 } else {
     echo "<h3>You are not logged in!</h3><p> <a href=\"index.php\">Login First</a></p>";
