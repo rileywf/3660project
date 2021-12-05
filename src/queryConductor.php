@@ -10,86 +10,96 @@ if(isset($_COOKIE["username"])) {
       exit;
     }
 
+    $cname = 0;
+    $cid = 0;
+    $cphone = 0;
+    $cage = 0;
+    $routeid = 0;
+    $cert = 0;
+
+    $cname = $_POST['cname'];
+    $cid = $_POST['cid'];
+    $cphone = $_POST['cphone'];
+    $cage = $_POST['cage'];
+    $routeid = $_POST['routeid'];
+    $cert = $_POST['certification']
+
+
     $condcounter = 0;
-/*
-    $sql = "select * from CONDUCTOR
-            where condName='$_POST[cname]'
-            or ID='$_POST[cid]'
-            or phoneNum='$_POST[cphone]'
-            or age='$_POST[cage]'
-            or rID='$_POST[routeid]'
-            or Certification='$_POST[certification]'";
-*/
-            
-            //selection statment
-            $sql = "select * from CONDUCTOR
-                    where";
 
-            if (!empty($_POST['cname']))
-            {
-              if($condcounter > 0)
-              {
-                $sql .= " and";
-              }
-              $sql .= " condName='$_POST[cname]'";
-              $condcounter++;
-            }
+        //selection statment
+    $sql = "select * from CONDUCTOR";
 
-            if (!empty($_POST['cid']))
-            {
-              if($condcounter > 0)
-              {
-                $sql .= " and";
-              }
-              $sql .= " ID='$_POST[cid]'";
-              $condcounter++;
-            }
-
-            if (!empty($_POST['cphone']))
-            {
-              if($condcounter > 0)
-              {
-                $sql .= " and";
-              }
-              $sql .= " phoneNum='$_POST[cphone]'";
-              $condcounter++;
-            }
-
-            if (!empty($_POST['cage']))
-            {
-              if($condcounter > 0)
-              {
-                $sql .= " and";
-              }
-              $sql .= " age='$_POST[cage]'";
-              $condcounter++;
-            }
-
-            if (!empty($_POST['routeid']))
-            {
-              if($condcounter > 0)
-              {
-                $sql .= " and";
-              }
-              $sql .= " rID='$_POST[routeid]'";
-              $condcounter++;
-            }
-
-            if (!empty($_POST['certification']))
-            {
-              if($condcounter > 0)
-              {
-                $sql .= " and";
-              }
-              $sql .= " Certification='$_POST[certification]'";
-              $condcounter++;
-            }
-
-    $result = $conn->query($sql);
-
-    if($conn->query($sql))
+    if(!empty($cname) or !empty($cid) or !empty($cphone) or !empty($cage) or !empty($cert))
     {
-      echo "<tale border='1' style='width:100%'>
+      $sql .= " where";
+    }
+
+    if (!empty($cname))
+    {
+      if($condcounter > 0)
+      {
+        $sql .= " and";
+      }
+      $sql .= " condName='$cname'";
+      $condcounter++;
+    }
+
+        if (!empty($cid))
+        {
+          if($condcounter > 0)
+          {
+            $sql .= " and";
+          }
+          $sql .= " ID='$cid'";
+          $condcounter++;
+        }
+
+        if (!empty($cphone))
+        {
+          if($condcounter > 0)
+          {
+            $sql .= " and";
+          }
+          $sql .= " phoneNum='$cphone'";
+          $condcounter++;
+        }
+
+        if (!empty($cage))
+        {
+          if($condcounter > 0)
+          {
+            $sql .= " and";
+          }
+          $sql .= " age='$cage'";
+          $condcounter++;
+        }
+
+        if (!empty($routeid))
+        {
+          if($condcounter > 0)
+          {
+            $sql .= " and";
+          }
+          $sql .= " rID='$routeid'";
+          $condcounter++;
+        }
+
+        if (!empty($cert))
+        {
+          if($condcounter > 0)
+          {
+            $sql .= " and";
+          }
+          $sql .= " Certification='$cert'";
+          $condcounter++;
+        }
+
+        $result = $conn->query($sql);
+
+      if($conn->query($sql))
+        {
+      echo "<table border='1' style='width:100%'>
       <tr>
       <th>Name</th>
       <th>ID</th>
@@ -117,7 +127,7 @@ if(isset($_COOKIE["username"])) {
     $err = $conn->errono;
     printf("error: %d", $err);
   }
-  echo "<a href=\"main.php\">Return to homepage<\a>";
+  echo "<a href=\"main.php\">Return to homepage</a>";
 
 } else {
     echo "<h3>You are not logged in!</h3><p> <a href=\"index.php\">Login First</a></p>";

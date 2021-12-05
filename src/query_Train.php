@@ -23,9 +23,10 @@
 
       Passenger Capacity: <input type=text name="pcapacity" size 20><br><br>
 
-    <input type=submit name="Submit" value="Query">
+      Leave all Fields Blank to query all<br><br>
+      <input type=submit name="Submit" value="Query">
 
-    </form>
+      </form>
 
   </body>
 </html>

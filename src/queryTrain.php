@@ -10,61 +10,74 @@ if(isset($_COOKIE["username"])) {
       exit;
     }
 
+    $tid = 0;
+    $rid = 0;
+    $fueltype = 0;
+    $typeoftrain = 0;
+    $pcapacity = 0;
+
+    $tid = $_POST['tid'];
+    $rid = $_POST['rid'];
+    $fueltype = $_POST['fueltype'];
+    $typeoftrain = $_POST['typeoftrain'];
+    $pcapacity = $_POST['pcapacity'];
+
+
     $condcounter = 0;
     $sql = "select * from TRAIN";
 
-    if(!empty($_POST['ID'] or !empty($_POST['rID'])) or !empty($_POST['Fuel']) or !empty($_POST['Type']) or !empty($_POST['passenger_capacity']))
+    if(!empty($tid) or !empty($rid) or !empty($fueltype) or !empty($typeoftrain) or !empty($pcapacity))
     {
       $sql .= " where";
-    } 
+    }
 
-    if (!empty($_POST['tid']))
+    if (!empty($tid))
     {
       if($condcounter > 0)
       {
         $sql .= " and";
       }
-      $sql .= " ID='$_POST[tid]'";
+      $sql .= " ID='$tid'";
       $condcounter++;
     }
 
-    if (!empty($_POST['rid']))
+    if (!empty($rid))
     {
       if($condcounter > 0)
       {
         $sql .= " and";
       }
-      $sql .= " rID='$_POST[rid]'";
+      $sql .= " rID='$rid'";
       $condcounter++;
     }
 
-    if (!empty($_POST['fueltype']))
+    if (!empty($fueltype))
     {
       if($condcounter > 0)
       {
         $sql .= " and";
       }
-      $sql .= " Fuel='$_POST[fueltype]'";
+      $sql .= " Fuel='$fueltype'";
       $condcounter++;
     }
 
-    if (!empty($_POST['traintype']))
+    if (!empty($traintype))
     {
       if($condcounter > 0)
       {
         $sql .= " and";
       }
-      $sql .= " Type='$_POST[traintype]'";
+      $sql .= " Type='$traintype'";
       $condcounter++;
     }
 
-    if (!empty($_POST['pcapacity']))
+    if (!empty($pcapacity))
     {
       if($condcounter > 0)
       {
         $sql .= " and";
       }
-      $sql .= " passenger_capacity='$_POST[pcapacity]'";
+      $sql .= " passenger_capacity='$pcapacity'";
       $condcounter++;
     }
 
@@ -72,13 +85,13 @@ if(isset($_COOKIE["username"])) {
 
     if($conn->query($sql))
     {
-      echo "<tale border='1' style='width:100%'>
+      echo "<table border='1' style='width:100%'>
       <tr>
       <th>Train ID</th>
       <th>Route ID</th>
       <th>Fuel</th>
       <th>Type</th>
-      <th>passenger_capacity</th>
+      <th>Passenger Capacity</th>
       </tr>";
 
     while($row = mysqli_fetch_array($result))
@@ -98,7 +111,7 @@ if(isset($_COOKIE["username"])) {
     $err = $conn->errono;
     printf("error: %d", $err);
   }
-  echo "<a href=\"main.php\">Return to homepage<\a>";
+  echo "<a href=\"main.php\">Return to homepage</a>";
 
 
 } else {

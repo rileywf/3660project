@@ -8,6 +8,7 @@
 
       Station Number: <input type=text name="snumber" size=20><br><br>
 
+      Leave all Fields Blank to query all<br><br>
       <input type=submit name="Submit" value="Query">
 
     </form>
