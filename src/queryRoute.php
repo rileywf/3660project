@@ -13,8 +13,8 @@
 
     $sql = "select * from ROUTES
 	    where name='$_POST[rname]'
-	    and typesOfTrain='$_POST[sname]'
-	    and ID='$_POST[IDname]'";
+	    or typesOfTrain='$_POST[sname]'
+	    or ID='$_POST[IDname]'";
     $result = $conn->query($sql);
 
       if($conn->query($sql)) {
@@ -38,7 +38,7 @@
       $err = $conn->errono;
       printf("error: %d", $err);
     }
-    echo "<a href=\"main.php\">Return</a> to Home Page.";
+    echo "<a href=\"main.php\">Return to Home Page.</a>";
   } else {
     echo "<h3>You are not logged in!</h3><p> <a href=\"index.php\">Login First</a></p>";
   }
