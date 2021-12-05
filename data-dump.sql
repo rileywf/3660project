@@ -15,33 +15,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
--- Table structure for table `Apart_Of`
---
 
-DROP TABLE IF EXISTS `Apart_Of`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Apart_Of` (
-  `ID` int(11) NOT NULL,
-  `name` char(255) NOT NULL,
-  `stationNumber` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `name` (`name`),
-  CONSTRAINT `Apart_Of_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `ROUTES` (`ID`),
-  CONSTRAINT `Apart_Of_ibfk_2` FOREIGN KEY (`name`) REFERENCES `STATION` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-
---
--- Dumping data for table `Apart_Of`
---
-
-LOCK TABLES `Apart_Of` WRITE;
-/*!40000 ALTER TABLE `Apart_Of` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Apart_Of` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `CONDUCTOR`
@@ -122,6 +96,35 @@ LOCK TABLES `STATION` WRITE;
 /*!40000 ALTER TABLE `STATION` DISABLE KEYS */;
 /*!40000 ALTER TABLE `STATION` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `Apart_Of`
+--
+
+DROP TABLE IF EXISTS `Apart_Of`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Apart_Of` (
+  `ID` int(11) NOT NULL,
+  `name` char(255) NOT NULL,
+  `stationNumber` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `name` (`name`),
+  CONSTRAINT `Apart_Of_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `ROUTES` (`ID`),
+  CONSTRAINT `Apart_Of_ibfk_2` FOREIGN KEY (`name`) REFERENCES `STATION` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Apart_Of`
+--
+
+LOCK TABLES `Apart_Of` WRITE;
+/*!40000 ALTER TABLE `Apart_Of` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Apart_Of` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 
 --
 -- Table structure for table `TIMES`

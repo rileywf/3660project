@@ -1,7 +1,7 @@
 <?php
 if(isset($_COOKIE["username"])) {
 
-  //echo "<form action=\"updateStation2.php\" method=post>";
+  echo "<form action=\"updateStation2.php\" method=post>";
 
    $username = $_COOKIE["username"];
    $password = $_COOKIE["password"];
@@ -29,14 +29,14 @@ if($result->num_rows!= 0)
 	{
     echo "<h2> What you want turn the Route into </h2>";
     echo "Route Name: <input type=text name=\"rname\" value=\"$rec[rname]\"><br><br>";
-    echo "<label for=\"typesOfTrain\">Choose a Train type:</label>
-    <select name=\"sname\" id=\"typesOfTrain\">
+    echo "<label for=\"typesOfTrain\">Choose a Station type:</label>
+    <select name=\"Type\" id=\"Type\">
     <option value=\"Cargo\">Cargo</option>
     <option value=\"Passanger\">Passanger</option>
   </select> <br> <br>";
 
 	   $rec=$result->fetch_assoc();
-     echo "<h2> What you want to turn the Route into </h2>";
+     echo "<h2> What you name would you like to update the Station to? </h2>";
 	   echo "Station Name: <input type=text name=\"SN\" value=\"$rec[SN]\"><br><br>";
 	   echo "<label for=\"openingTime\">Choose a Opening Time:</label>
      <select name=\"openingTime\" id=\"OT\">
@@ -65,7 +65,7 @@ if($result->num_rows!= 0)
      <option value=\"11 PM\">11 PM</option>
    </select> <br> <br>";
 	   echo "Enter station name: <input type=text name=\"ID\" value=\"$rec[SN]\"><br><br>";
-	   echo "<input type=hidden name=\"oldname\" value=\"$_POST[rname]\">";
+	   echo "<input type=hidden name=\"oldname\" value=\"$_POST[SN]\">";
 	   echo "<input type=submit name=\"submit\" value=\"Update\">";
 	}
 	else
