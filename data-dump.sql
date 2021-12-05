@@ -50,14 +50,14 @@ DROP TABLE IF EXISTS `CONDUCTOR`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `CONDUCTOR` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `rID` int(11) DEFAULT NULL,
+  `tID` int(11) DEFAULT NULL,
   `phoneNum` int(11) DEFAULT NULL,
   `condName` char(255) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   `Certification` enum('Yes','No') DEFAULT NULL,
   PRIMARY KEY (`ID`),
-  KEY `rID` (`rID`),
-  CONSTRAINT `CONDUCTOR_ibfk_1` FOREIGN KEY (`rID`) REFERENCES `TRAIN` (`ID`)
+  KEY `tID` (`tID`),
+  CONSTRAINT `CONDUCTOR_ibfk_1` FOREIGN KEY (`tID`) REFERENCES `TRAIN` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -130,8 +130,8 @@ DROP TABLE IF EXISTS `TIMES`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `TIMES` (
   `ID` int(11) NOT NULL,
-  `times` int(11) DEFAULT NULL,
-  `arrivesTimes` char(255) DEFAULT NULL,
+  `departure` int(11) DEFAULT NULL,
+  `arrivals` char(255) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   CONSTRAINT `TIMES_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `ROUTES` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
