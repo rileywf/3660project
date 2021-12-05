@@ -6,12 +6,13 @@
 		Specify Conductor Name: <input type=text name="Cname" size=20><br><br>
     Specify Phone Number: <input type=text name="PN" size=20><br><br>
     Specify Conductor Age: <input type=text name="age" size=20><br><br>
-    <label for="Certification">Choose a Certification type:</label>
+
+
+    <label for="Certification">Is Conductor Certificated:</label>
     <select name="Cert" id="Certification">
     <option value="Yes">Yes</option>
     <option value="No">No</option>
-  </select> <br> <br>
-		Specify Conductor ID: <input type=text name="IDname" size=20><br><br>
+    </select> <br> <br>
 		<input type=submit name="Submit" value="Update Conductor"></form>
 	</body>
 </html>
