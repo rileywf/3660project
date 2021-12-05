@@ -15,7 +15,7 @@
           echo "<table class=\"table table-striped table-hover\">";
           echo "<thead><tr>";
           echo "<th scope=\"col\">ID</th>";
-          echo "<th scope=\"col\">Route ID</th>";
+          echo "<th scope=\"col\">Assigned Route</th>";
           echo "<th scope=\"col\">Fuel</th>";
           echo "<th scope=\"col\">Type</th>";
           echo "<th scope=\"col\">Passenger Capacity</th>";
@@ -23,9 +23,12 @@
           echo "</tr></thead>";
           echo "<tbody>";
           while($val = mysqli_fetch_array($result)) {
+            $sql2 = "select name from ROUTES where ID='$val[rID]'";
+            $result2 = $conn->query($sql2);
+            $val2 = $result2->fetch_assoc();
             echo "<tr>";
             echo "<th scope=\"row\">$val[ID]</th>";
-            echo "<td>$val[rID]</td>";
+            echo "<td>$val2[name]</td>";
             echo "<td>$val[Fuel]</td>";
             echo "<td>$val[Type]</td>";
             echo "<td>$val[passenger_capacity]</td>";
