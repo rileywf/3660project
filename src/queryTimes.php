@@ -16,9 +16,9 @@ if(isset($_COOKIE["username"])) {
     if(!empty($_POST['rid'] or !empty($_POST['arrtime'])) /*or !empty($_POST['times'])*/ )
     {
       $sql .= " where";
-    } 
+    }
 
-    
+
     if (!empty($_POST['rid']))
     {
       if($condcounter > 0)
@@ -54,7 +54,7 @@ $result = $conn->query($sql);
 
 if($conn->query($sql))
 {
-  echo "<tale border='1' style='width:100%'>
+  echo "<table border='1' style='width:100%'>
   <tr>
   <th>Route ID</th>
   <th>Arrival Times</th>
@@ -76,7 +76,7 @@ else
 $err = $conn->errono;
 printf("error: %d", $err);
 }
-echo "<a href=\"main.php\">Return to homepage<\a>";
+echo "<a href=\"main.php\">Return to homepage</a>";
 
 
 } else {

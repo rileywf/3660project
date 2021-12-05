@@ -16,7 +16,7 @@ if(isset($_COOKIE["username"])) {
     if(!empty($_POST['ID'] or !empty($_POST['rID'])) or !empty($_POST['Fuel']) or !empty($_POST['Type']) or !empty($_POST['passenger_capacity']))
     {
       $sql .= " where";
-    } 
+    }
 
     if (!empty($_POST['tid']))
     {
@@ -72,7 +72,7 @@ if(isset($_COOKIE["username"])) {
 
     if($conn->query($sql))
     {
-      echo "<tale border='1' style='width:100%'>
+      echo "<table border='1' style='width:100%'>
       <tr>
       <th>Train ID</th>
       <th>Route ID</th>
@@ -98,7 +98,7 @@ if(isset($_COOKIE["username"])) {
     $err = $conn->errono;
     printf("error: %d", $err);
   }
-  echo "<a href=\"main.php\">Return to homepage<\a>";
+  echo "<a href=\"main.php\">Return to homepage</a>";
 
 
 } else {

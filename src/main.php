@@ -18,11 +18,11 @@
 
     <h2> Search </h2>
     <ul>
-        <li><a href="query_Route.php">Query Routes</a></li><br><br>
+        <li><a href="query_Route.php">Query Routes</a></li>
         <li><a href="query_Times.php">Query Route Times Tables</a></li><br<br>
         <li><a href="query_Conductor.php">Query Conductors</a></li><br<br>
         <li><a href="query_Train.php">Query Trains</a></li><br<br>
-        <li><a href="query_Station.php">Query Stationsr</a></li><br<br>
+        <li><a href="query_Station.php">Query Stations</a></li><br<br>
         <li><a href="query_Apart_Of.php">Query Station Route Assignments</a></li><br<br>
     </ul>
 

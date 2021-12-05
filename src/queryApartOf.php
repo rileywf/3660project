@@ -10,43 +10,51 @@ if(isset($_COOKIE["username"])) {
       exit;
     }
 
+    $routeid = 0;
+    $sname = 0;
+    $snumber = 0;
+
+    $routeid = $_POST['routeid'];
+    $sname = $_POST['sname'];
+    $snumber = $_POST['snumber'];
+
     $condcounter = 0;
  //selection statment
     $sql = "select * from Apart_Of";
 
-    if(!empty($_POST['routeid']) or !empty($_POST['sname']) or !empty($_POST['snumber']))
+    if(!empty($routeid) or !empty($sname) or !empty($snumber))
     {
       $sql .= " where";
     }
-    
 
-    if (!empty($_POST['routeid']))
+
+    if (!empty($routeid))
     {
       if($condcounter > 0)
       {
         $sql .= " and";
       };
-      $sql .= " ID='$_POST[routeid]'";
+      $sql .= " ID='$routeid'";
       $condcounter++;
     }
 
-    if (!empty($_POST['sname']))
+    if (!empty($sname))
     {
       if($condcounter > 0)
       {
         $sql .= " and";
       }
-      $sql .= " name='$_POST[sname]'";
+      $sql .= " name='$sname'";
       $condcounter++;
     }
 
-    if (!empty($_POST['snumber']))
+    if (!empty($snumber))
     {
       if($condcounter > 0)
       {
         $sql .= " and";
       }
-      $sql .= " stationNumber='$_POST[snumber]'";
+      $sql .= " stationNumber='$snumber'";
       $condcounter++;
     }
 
@@ -55,7 +63,7 @@ if(isset($_COOKIE["username"])) {
 
     if($conn->query($sql))
     {
-      echo "<tale border='1' style='width:100%'>
+      echo "<table border='1' style='width:100%'>
       <tr>
       <th>Route ID</th>
       <th>Station Name</th>
@@ -77,7 +85,7 @@ if(isset($_COOKIE["username"])) {
     $err = $conn->errono;
     printf("error: %d", $err);
   }
-  echo "<a href=\"main.php\">Return to homepage<\a>";
+  echo "<a href=\"main.php\">Return to homepage</a>";
 
 
 } else {
