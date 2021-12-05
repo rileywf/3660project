@@ -108,8 +108,6 @@ CREATE TABLE `Apart_Of` (
   `ID` int(11) NOT NULL,
   `name` char(255) NOT NULL,
   `stationNumber` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `name` (`name`),
   CONSTRAINT `Apart_Of_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `ROUTES` (`ID`),
   CONSTRAINT `Apart_Of_ibfk_2` FOREIGN KEY (`name`) REFERENCES `STATION` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
