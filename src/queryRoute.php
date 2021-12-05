@@ -11,10 +11,55 @@
       exit;
     }
 
-    $sql = "select * from ROUTES
-	    where name='$_POST[rname]'
-	    or typesOfTrain='$_POST[sname]'
-	    or ID='$_POST[IDname]'";
+          $rname = 0;
+          $traintype = 0;
+          $rid = 0;
+
+          $rname = $_POST['rname'];
+          $traintype = $_POST['traintype'];
+          $rid = $_POST['rid'];
+          
+
+          $condcounter = 0;
+       //selection statment
+          $sql = "select * from ROUTES";
+
+          if(!empty($rname) or !empty($traintype) or !empty($rid))
+          {
+            $sql .= " where";
+          }
+
+          if (!empty($rname))
+          {
+            if($condcounter > 0)
+            {
+              $sql .= " and";
+            };
+            $sql .= " name='$rname'";
+            $condcounter++;
+          }
+
+          if (!empty($traintype))
+          {
+            if($condcounter > 0)
+            {
+              $sql .= " and";
+            }
+            $sql .= " typesOfTrain='$traintype'";
+            $condcounter++;
+          }
+
+          if (!empty($rid))
+          {
+            if($condcounter > 0)
+            {
+              $sql .= " and";
+            }
+            $sql .= " ID='$rid'";
+            $condcounter++;
+          }
+
+
     $result = $conn->query($sql);
 
       if($conn->query($sql)) {
@@ -39,6 +84,7 @@
       printf("error: %d", $err);
     }
     echo "<a href=\"main.php\">Return to Home Page.</a>";
+
   } else {
     echo "<h3>You are not logged in!</h3><p> <a href=\"index.php\">Login First</a></p>";
   }

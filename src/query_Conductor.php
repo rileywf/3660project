@@ -20,6 +20,7 @@
       <option value="No">No</option>
       </select>
 
+      Leave all Fields Blank to query all<br><br>
       <input type=submit name="Submit" value="Query">
 
     </form>
