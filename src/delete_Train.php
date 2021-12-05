@@ -32,12 +32,9 @@
             echo "<td><a href=\"deleteTrain.php?id=$val[ID]\">Delete</a></td>";
             echo "</tr>";
           }
-
-
-
           echo "</tbody>";
           echo "</table>";
-
+          echo "<br><br><a href=\"main.php\">Return</a> to Home Page.";
         } else {
           echo "<h1>Not logged in redirecting...</h1>";
           header("Location: index.php");

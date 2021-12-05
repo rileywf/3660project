@@ -28,10 +28,9 @@
 
     <h2> Delete </h2>
     <ul>
-        <li><a href="delete_Route.php">Delete a Route</a></li><br><br>
-        <li><a href="delete_Train.php">Delete a Train</a></li><br><br>
-
+        <li><a href="delete_Route.php">Delete a Route</a></li>
+        <li><a href="delete_Train.php">Delete a Train</a></li>
     </ul>
-
+    <br>
     <p><a href="logout.php">Logout</a></p>
 </html>

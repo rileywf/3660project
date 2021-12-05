@@ -1,31 +1,40 @@
 <html>
-  <head>
-    <title>Railroad System</title>
-  </head>
   <body>
-    <?php
-      if(isset($_COOKIE["username"])) {
-        $username = $_COOKIE["username"];
-        $password = $_COOKIE["password"];
-        $conn = new mysqli("vconroy.cs.uleth.ca",$username,$password,$username);
-
-        echo "<form action=\"deleteRoute.php\" method=post>";
-        $sql=  "select name from ROUTES";
-        $result = $conn->query($sql);
-        if($result->num_rows != 0) {
-          echo "Route Name: <select name=\"name\">";
-          while($val = $result->fetch_assoc()) {
-            echo "<option value='$val[name]'>$val[name]</option>";
-          }
-          echo "</select>";
-          echo "<input type=submit name=\"Submit\" value=\"Delete\">";
-        } else {
-          echo "<p> ERROR, ENTER SOME DATA</p>";
-        }
-        echo "</form>";
-      } else {
-        echo "<h3>You are not logged in!</h3><p> <a href=\"index.php\">Login First</a></p>";
-      }
-     ?>
+      <title> Railroad System - Delete a ROUTE</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
+  <?php
+      if(isset($_COOKIE["username"])) {
+          $username = $_COOKIE["username"];
+          $password = $_COOKIE["password"];
+          $conn = new mysqli("vconroy.cs.uleth.ca",$username,$password,$username);
+          $sql = "select * from ROUTES";
+          $result = $conn->query($sql);
+
+          echo "<table class=\"table table-striped table-hover\">";
+          echo "<thead><tr>";
+          echo "<th scope=\"col\">ID</th>";
+          echo "<th scope=\"col\">Name</th>";
+          echo "<th scope=\"col\">Supported Trains</th>";
+          echo "<th scope=\"col\">Delete</th>";
+          echo "</tr></thead>";
+          echo "<tbody>";
+          while($val = mysqli_fetch_array($result)) {
+            echo "<tr>";
+            echo "<th scope=\"row\">$val[ID]</th>";
+            echo "<td>$val[name]</td>";
+            echo "<td>$val[typesOfTrain]</td>";
+            echo "<td><a href=\"deleteRoute.php?id=$val[ID]\">Delete</a></td>";
+            echo "</tr>";
+          }
+          echo "</tbody>";
+          echo "</table>";
+          echo "<br><br><a href=\"main.php\">Return</a> to Home Page.";
+        } else {
+          echo "<h1>Not logged in redirecting...</h1>";
+          header("Location: index.php");
+          die();
+        }
+  ?>
 </html>
