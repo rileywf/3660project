@@ -10,22 +10,30 @@ if(isset($_COOKIE["username"])) {
       exit;
     }
 
+    $rid = 0;
+    $arrtime = 0;
+    $depttime = 0;
+
+    $rid = $_POST['rid'];
+    $arrtime = $_POST['arrtime'];
+    $depttime = $_POST['depttime'];
+
     $condcounter = 0;
     $sql = "select * from TIMES";
 
-    if(!empty($_POST['rid'] or !empty($_POST['arrtime'])) /*or !empty($_POST['times'])*/ )
+    if(!empty($rid) or !empty($arrtime) or !empty($depttime))
     {
       $sql .= " where";
     }
 
 
-    if (!empty($_POST['rid']))
+    if (!empty($rid))
     {
       if($condcounter > 0)
       {
         $sql .= " and";
       }
-      $sql .= " ID='$_POST[rid]'";
+      $sql .= " ID='$rid'";
       $condcounter++;
     }
 
@@ -35,20 +43,20 @@ if(isset($_COOKIE["username"])) {
       {
         $sql .= " and";
       }
-      $sql .= " arrivesTimes='$_POST[cid]'";
+      $sql .= " arrivesTimes='$arrtime'";
       $condcounter++;
     }
-/*
-    if (!empty($_POST['times']))
+
+    if (!empty($depttime))
     {
       if($condcounter > 0)
       {
         $sql .= " and";
       }
-      $sql .= " times='$_POST[times]'";
+      $sql .= " times='$depttime'";
       $condcounter++;
     }
-*/
+
 
 $result = $conn->query($sql);
 
