@@ -37,7 +37,7 @@
 
           echo "</tbody>";
           echo "</table>";
-
+          echo "<a href=\"main.php\">Return</a> to Home Page.";
         } else {
           echo "<h1>Not logged in redirecting...</h1>";
           header("Location: index.php");
