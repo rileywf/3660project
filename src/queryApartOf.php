@@ -1,3 +1,8 @@
+<html>
+  <body>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 <?php
 
 if(isset($_COOKIE["username"])) {
@@ -58,34 +63,35 @@ if(isset($_COOKIE["username"])) {
       $condcounter++;
     }
 
-
     $result = $conn->query($sql);
 
     if($conn->query($sql))
     {
-      echo "<table border='1' style='width:100%'>
-      <tr>
-      <th>Route ID</th>
-      <th>Station Name</th>
-      <th>Station Number</th>
-      </tr>";
+      echo "<table class=\"table table-striped table-hover\">";
+      echo "<thead><tr>";
+      echo "<th scope=\"col\">Route ID</th>";
+      echo "<th scope=\"col\">Station Name</th>";
+      echo "<th scope=\"col\">Station Number</th>";
+      echo "</tr></thead>";
+      echo "<tbody>";
+    }
+    else {
+      $err = $conn->errono;
+      printf("error: %d", $err);
+    }
 
-    while($row = mysqli_fetch_array($result))
+    while($val = mysqli_fetch_array($result))
     {
       echo "<tr>";
-      echo "<td>" . $row['routeid'] . "</td>";
-      echo "<td>" . $row['sname'] . "</td>";
-      echo "<td>" . $row['snumber'] . "</td>";
+      echo "<th scope=\"row\">$val[routeid]</th>";
+      echo "<td>$val[sname]</td>";
+      echo "<td>$val[snumber]</td>";
       echo "</tr>";
     }
+
+    echo "</tbody>";
     echo "</table>";
-  }
-  else
-  {
-    $err = $conn->errono;
-    printf("error: %d", $err);
-  }
-  echo "<a href=\"main.php\">Return to homepage</a>";
+    echo "<a href=\"query_Apart_Of.php\">Return to Route Assignment Query</a>";
 
 
 } else {
