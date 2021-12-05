@@ -7,15 +7,20 @@
 		<label for="typesOfTrain">Choose a Train type:</label>
 		<select name="sname" id="typesOfTrain">
 		<option value="Cargo">Cargo</option>
-		<option value="Passanger">Passanger</option>
-	</select> <br> <br>
+		<option value="Passanger">Passenger</option>
+		</select> <br> <br>
 
 		Route ID: <input type=text name="IDname" size=20><br><br>
 
-		<input type=submit name="Submit" value="Query"></form>
+		<input type=submit name="Submit" value="Query">
+	
+		</form>
 
-		<form action="queryRoute2.php" method=post>
-			<input type=submit value="All"></form>
+		<form action="queryRouteAll.php" method=post>
+			<input type=submit value="Display all">
+		</form>
 
+		<a href=\
+		
 	</body>
 </html>
