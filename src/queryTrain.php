@@ -27,7 +27,6 @@ if(isset($_COOKIE["username"])) {
     $typeoftrain = $_POST['typeoftrain'];
     $pcapacity = $_POST['pcapacity'];
 
-
     $condcounter = 0;
     $sql = "select * from TRAIN";
 
@@ -93,7 +92,7 @@ if(isset($_COOKIE["username"])) {
       echo "<table class=\"table table-striped table-hover\">";
       echo "<thead><tr>";
       echo "<th scope=\"col\">Train ID</th>";
-      echo "<th scope=\"col\">Route ID</th>";
+      echo "<th scope=\"col\">Assigned Route</th>";
       echo "<th scope=\"col\">Fuel Type</th>";
       echo "<th scope=\"col\">Type of Train</th>";
       echo "<th scope=\"col\">Passenger Capacity</th>";
@@ -108,9 +107,16 @@ if(isset($_COOKIE["username"])) {
 
     while($val = mysqli_fetch_array($result))
     {
+      $sql2 = "select name from ROUTES where ID='$rid'";
+      $result2 = $conn->query($sql2);
       echo "<tr>";
       echo "<th scope=\"row\">$val[ID]</th>";
-      echo "<td>$val[rID]</td>";
+      if($result2->num_rows != 0) {
+        $val2 = $result2->fetch_assoc();
+        echo "<td>$val2[name]</td>";
+      } else {
+        echo "<td>unassigned</td>";
+      }
       echo "<td>$val[Fuel]</td>";
       echo "<td>$val[Type]</td>";
       echo "<td>$val[passenger_capacity]</td>";

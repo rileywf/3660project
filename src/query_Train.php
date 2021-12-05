@@ -4,7 +4,7 @@
     <form action="queryTrain.php" method=post>
       Train ID: <input type=text name="tid" size=20><br><br>
 
-      Route ID: <input type=text name="rid" size=20><br><br>
+      Assigned Route ID: <input type=text name="rid" size=20><br><br>
 
       <label for="fuel">Train Fuel Type:</label>
 
