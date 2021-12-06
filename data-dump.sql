@@ -26,7 +26,7 @@ DROP TABLE IF EXISTS `CONDUCTOR`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `CONDUCTOR` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `rID` int(11) DEFAULT NULL,
+  `tID` int(11) DEFAULT NULL,
   `phoneNum` int(11) DEFAULT NULL,
   `condName` char(255) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
