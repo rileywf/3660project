@@ -24,10 +24,10 @@ insert into ROUTES (typesOfTrain, name) values ('Cargo', 'Canadian Pacific Rail'
 insert into ROUTES (typesOfTrain, name) values ('Cargo', 'Black Site Cargo');
 
 /*default Stations */
-insert into STATION (name, openingTime, closingTime, location, Type) values ('Lethbridge Cargo', '9', '22', 'Lethbridge', 'Cargo');
-insert into STATION (name, openingTime, closingTime, location, Type) values ('Calgary Cargo', '9', '22', 'Calgary', 'Cargo');
-insert into STATION (name, openingTime, closingTime, location, Type) values ('Heritage Park Station', '10', '18', 'Calgary', 'Passanger');
-insert into STATION (name, openingTime, closingTime, location, Type) values ('Brunch Stop', '10', '12', 'Lethbridge', 'Passanger');
-insert into STATION (name, openingTime, closingTime, location, Type) values ('P&H Grain', '10', '22', 'Lethbridge', 'Cargo');
-insert into STATION (name, openingTime, closingTime, location, Type) values ('Stalkers Station', '6', '20', 'The Zone', 'Passanger');
+insert into STATION (name, openingTime, closingTime, location, Type) values ('Lethbridge Cargo', '9:15', '22:00', 'Lethbridge', 'Cargo');
+insert into STATION (name, openingTime, closingTime, location, Type) values ('Calgary Cargo', '9:00', '22:00', 'Calgary', 'Cargo');
+insert into STATION (name, openingTime, closingTime, location, Type) values ('Heritage Park Station', '10:00', '18:00', 'Calgary', 'Passanger');
+insert into STATION (name, openingTime, closingTime, location, Type) values ('Brunch Stop', '8:00', '12:00', 'Lethbridge', 'Passanger');
+insert into STATION (name, openingTime, closingTime, location, Type) values ('P&H Grain', '10:00', '22:00', 'Lethbridge', 'Cargo');
+insert into STATION (name, openingTime, closingTime, location, Type) values ('Stalkers Station', '6:00', '20:00', 'The Zone', 'Passanger');
 insert into STATION (name, location, Type) values ('The End of The Line', 'Hades', 'Passanger');

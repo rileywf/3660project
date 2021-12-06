@@ -4,7 +4,8 @@ $username = $_COOKIE["username"];
 $password = $_COOKIE["password"];
 
 $conn = new mysqli("vconroy.cs.uleth.ca",$username,$password,$username);
-$sql = "update CONDUCTOR set name='$_POST[rname]' where name='$_POST[oldname]'";
+$sql = "update CONDUCTOR set condName='$_POST[name]' phoneNum = '$_POST[pnum]'
+age='$_POST[age]' Certification='$_POST[cert]' where ID='$_rec[ID]'";
 $result = $conn->query($sql);
 
 if($result)

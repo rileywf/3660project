@@ -13,9 +13,7 @@ if(isset($_COOKIE["username"])) {
      exit;
    }
 	$sql = "select * from CONDUCTOR
-	    where name='$_POST[rname]'
-	    and typesOfTrain='$_POST[sname]'
-	    and ID='$_POST[IDname]'";
+	    where ID='$_POST[ID]'";
 
 	$result = $conn->query($sql);
 	if(!$result)
@@ -27,15 +25,16 @@ if(isset($_COOKIE["username"])) {
 if($result->num_rows!= 0)
 	{
 	   $rec=$result->fetch_assoc();
-     echo "<h2> What you want turn the Route into </h2>";
-	   echo "Route Name: <input type=text name=\"rname\" value=\"$rec[rname]\"><br><br>";
-	   echo "<label for=\"typesOfTrain\">Choose a Train type:</label>
-     <select name=\"sname\" id=\"typesOfTrain\">
-     <option value=\"Cargo\">Cargo</option>
-     <option value=\"Passanger\">Passanger</option>
-   </select> <br> <br>";
-	   echo "Route ID: <input type=text name=\"ID\" value=\"$rec[IDname]\"><br><br>";
-	   echo "<input type=hidden name=\"oldname\" value=\"$_POST[rname]\">";
+     echo "<h2> What changes do you want to change </h2>";
+     echo "<input type=hidden name=\"oldname\" value=\"$_rec[ID]\">";
+	   echo "Conductor Name: <input type=text name=\"name\" value=\"\"><br><br>";
+	   echo "phoneNum: <input type=text name=\"pnum\" value=\"\"><br><br>";
+     echo "age: <input type=text name=\"age\" value=\"\"><br><br>";
+     echo "<label for=\"Certification\">Is Conductor Certificated:</label>";
+     echo "<select name=\"Cert\" id=\"Certification\">";
+     echo "<option value=\"Yes\">Yes</option>";
+     echo "<option value=\"No\">No</option>";
+     echo "</select> <br> <br>";
 	   echo "<input type=submit name=\"submit\" value=\"Update\">";
 	}
 	else

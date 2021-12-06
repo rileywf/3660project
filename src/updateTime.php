@@ -9,7 +9,7 @@
       exit;
     }
 
-    $sql = "insert into TIMES (ID. ID2, arrivals) value ('$_POST[name]','$_POST[id]','$_POST[AT]')";
+    $sql = "update into TIMES (ID. ID2, arrivals) value ('$_POST[name]','$_POST[id]','$_POST[AT]')";
     if($conn->query($sql)) {
       echo "<h3>Time Added to Stations!</h3>";
     } else {

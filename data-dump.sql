@@ -91,7 +91,7 @@ CREATE TABLE `ROUTES` (
 
 LOCK TABLES `ROUTES` WRITE;
 /*!40000 ALTER TABLE `ROUTES` DISABLE KEYS */;
-INSERT INTO `ROUTES` VALUES (1,'Electric','RoutyRoute'),(2,'Ghost','Haunted Railway'), (3, 'Cargo', 'pls');
+INSERT INTO `ROUTES` VALUES (1,'Passanger','Routy Route'),(2,'Cargo','Haunted Railway'), (3, 'Cargo', 'Windy Route');
 /*!40000 ALTER TABLE `ROUTES` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -130,9 +130,11 @@ DROP TABLE IF EXISTS `TIMES`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `TIMES` (
   `ID` char(255) NOT NULL,
+  'ID2' int(11) NOT NULL,
   `arrivals` time DEFAULT NULL,
   PRIMARY KEY (`arrivals`),
   CONSTRAINT `TIMES_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `STATION` (`name`)
+  CONSTRAINT `TIMES_ibfk_2` FOREIGN KEY (`ID2`) REFERENCES `TRAIN` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
