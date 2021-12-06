@@ -52,25 +52,14 @@ if(isset($_COOKIE["username"])) {
       $condcounter++;
     }
 
-    if (!empty($depttime))
-    {
-      if($condcounter > 0)
-      {
-        $sql .= " and";
-      }
-      $sql .= " departure='$depttime'";
-      $condcounter++;
-    }
-
     $result = $conn->query($sql);
 
     if($conn->query($sql))
     {
       echo "<table class=\"table table-striped table-hover\">";
       echo "<thead><tr>";
-      echo "<th scope=\"col\">Route ID</th>";
-      echo "<th scope=\"col\">Arrival Time</th>";
-      echo "<th scope=\"col\">Departure Time</th>";
+      echo "<th scope=\"col\">Station ID</th>";
+      echo "<th scope=\"col\">Arrival Times</th>";
       echo "</tr></thead>";
       echo "<tbody>";
     }
@@ -85,7 +74,6 @@ if(isset($_COOKIE["username"])) {
       echo "<tr>";
       echo "<th scope=\"row\">$val[ID]</th>";
       echo "<td>$val[arrivals]</td>";
-      echo "<td>$val[departure]</td>";
       echo "</tr>";
     }
 
