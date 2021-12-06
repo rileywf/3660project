@@ -17,16 +17,16 @@ if(isset($_COOKIE["username"])) {
 
     $rid = 0;
     $arrtime = 0;
-    $depttime = 0;
+    $tid = 0;
 
     $rid = $_POST['rid'];
     $arrtime = $_POST['arrtime'];
-    $depttime = $_POST['depttime'];
+    $tid = $_POST['tid'];
 
     $condcounter = 0;
     $sql = "select * from TIMES";
 
-    if(!empty($rid) or !empty($arrtime) or !empty($depttime))
+    if(!empty($rid) or !empty($arrtime) or !empty($tid))
     {
       $sql .= " where";
     }
@@ -42,7 +42,7 @@ if(isset($_COOKIE["username"])) {
       $condcounter++;
     }
 
-    if (!empty($_POST['arrivesTimes']))
+    if (!empty($arrtime))
     {
       if($condcounter > 0)
       {
@@ -52,13 +52,24 @@ if(isset($_COOKIE["username"])) {
       $condcounter++;
     }
 
+    if (!empty($tid))
+    {
+      if($condcounter > 0)
+      {
+        $sql .= " and";
+      }
+      $sql .= " ID2='$tid'";
+      $condcounter++;
+    }
+
     $result = $conn->query($sql);
 
     if($conn->query($sql))
     {
       echo "<table class=\"table table-striped table-hover\">";
       echo "<thead><tr>";
-      echo "<th scope=\"col\">Station ID</th>";
+      echo "<th scope=\"col\">Station Name</th>";
+      echo "<th scope=\"col\">Train ID</th>";
       echo "<th scope=\"col\">Arrival Times</th>";
       echo "</tr></thead>";
       echo "<tbody>";
@@ -74,6 +85,7 @@ if(isset($_COOKIE["username"])) {
       echo "<tr>";
       echo "<th scope=\"row\">$val[ID]</th>";
       echo "<td>$val[arrivals]</td>";
+      echo "<td>$val[ID2]</td>";
       echo "</tr>";
     }
 
