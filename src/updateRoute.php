@@ -15,10 +15,10 @@ if(isset($_COOKIE["username"])) {
      echo "<h2> What changes do you want to change </h2>";
      echo "<input type=hidden name=\"ID\" value=\"$_POST[ID]\">";
 
-	   echo "Route Name: <input type=text name=\"name\" value=\"\"><br><br>";
+	   echo "Route Name: <input type=text name=\"name\" value=\" \"><br><br>";
 
      echo "<label for=\"type\">Train Type:</label>";
-     echo "<select name=\"typesOfTrain\" id=\"typesOfTrain\">";
+     echo "<select name=\"type\" id=\"typesOfTrain\">";
      echo "<option value=\"Cargo\">Cargo</option>";
      echo "<option value=\"Passanger\">Passenger</option>";
      echo "</select> <br> <br>";

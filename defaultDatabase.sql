@@ -34,8 +34,8 @@ insert into STATION (name, location, Type) values ('The End of The Line', 'Hades
 
   /*default Apart_Of */
   insert into Apart_Of (ID, name, stationNumber) values ('1', 'Brunch Stop', '1');
-  insert into Apart_Of (ID, name, stationNumber) values ('2', 'Brunch Stop', '2');
-  insert into Apart_Of (ID, name, stationNumber) values ('3', 'Brunch Stop', '3');
+  insert into Apart_Of (ID, name, stationNumber) values ('2', 'P&H Grain', '1');
+  insert into Apart_Of (ID, name, stationNumber) values ('3', 'Calgary Cargo', '1');
 
   /*default TIMES */
   insert into TIMES (ID, Id2, arrivals) values ('Brunch Stop', '1', '9:00 am');

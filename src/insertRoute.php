@@ -18,7 +18,7 @@
       if($err == 1062) {
         echo "<p>Route already Exists!</p>";
       } else {
-        echo "<p> MySQL error: $err </p>";
+        echo "<p>Route already Exists!</p>";
       }
     }
     echo "<a href=\"main.php\">Return</a> to Home Page.";

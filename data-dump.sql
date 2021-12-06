@@ -83,7 +83,7 @@ CREATE TABLE `TRAIN` (
   `passenger_capacity` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `rID` (`rID`),
-  CONSTRAINT `TRAIN_ibfk_1` FOREIGN KEY (`rID`) REFERENCES `ROUTES` (`ID`) ON DELETE SET NULL
+  CONSTRAINT `TRAIN_ibfk_1` FOREIGN KEY (`rID`) REFERENCES `ROUTES` (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -139,8 +139,8 @@ CREATE TABLE `Apart_Of` (
   `ID` int(11),
   `name` char(255),
   `stationNumber` int(11) DEFAULT NULL,
-  CONSTRAINT `Apart_Of_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `ROUTES` (`ID`) ON DELETE SET NULL,
-  CONSTRAINT `Apart_Of_ibfk_2` FOREIGN KEY (`name`) REFERENCES `STATION` (`name`) ON DELETE SET NULL
+  CONSTRAINT `Apart_Of_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `ROUTES` (`ID`),
+  CONSTRAINT `Apart_Of_ibfk_2` FOREIGN KEY (`name`) REFERENCES `STATION` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -166,8 +166,8 @@ CREATE TABLE `TIMES` (
   `ID2` int(11),
   `arrivals` char(255) DEFAULT NULL,
   PRIMARY KEY (`arrivals`),
-  CONSTRAINT `TIMES_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `STATION` (`name`) ON DELETE SET NULL,
-  CONSTRAINT `TIMES_ibfk_2` FOREIGN KEY (`ID2`) REFERENCES `TRAIN` (`ID`) ON DELETE SET NULL
+  CONSTRAINT `TIMES_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `STATION` (`name`),
+  CONSTRAINT `TIMES_ibfk_2` FOREIGN KEY (`ID2`) REFERENCES `TRAIN` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

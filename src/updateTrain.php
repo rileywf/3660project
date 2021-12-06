@@ -13,7 +13,7 @@ if(isset($_COOKIE["username"])) {
      exit;
    }
      echo "<h2> What changes do you want to change </h2>";
-     echo "<input type=hidden name=\"name\" value=\"$_POST[name]\">";
+     echo "<input type=hidden name=\"ID\" value=\"$_POST[ID]\">";
 
      echo "<label for=\"type\">Fuel Type:</label>";
      echo "<select name=\"fuel\" id=\"fuel\">";
