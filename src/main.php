@@ -1,5 +1,6 @@
 <html>
-    <h1> Railroad system </h1>
+    <center><h1> Railroad system </h1></center> <br> <br>
+    <center><img src="bullet train.png" width="800" height="500" alt="Bullet Train"></center>
     <h2> Insert </h2>
     <ul>
         <li><a href="insert_Train.php">Insert a Train</a></li>

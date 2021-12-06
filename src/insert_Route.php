@@ -10,5 +10,6 @@
         <option value="Passanger">Passanger</option>
       </select> <br> <br>
         <input type=submit name="Submit" value="Insert"></form>
+        <a href=\"main.php\">Return</a> to Home Page.
     </body>
 </html>

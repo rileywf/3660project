@@ -18,6 +18,7 @@
        </select> <br> <br>
 
        <input type=submit name="Submit" value="Insert">
+       <a href=\"main.php\">Return</a> to Home Page.
      </form>
 </body>
 </html>
