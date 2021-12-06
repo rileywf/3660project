@@ -2,7 +2,7 @@
 <head>
 <title>Railroad System</title>
 </head>
-<h1>Update Train Arrival Time at Station</h1>
+<h1>Update Train Arrival Time of Station</h1>
 <body>
   <?php
     if(isset($_COOKIE["username"])) {

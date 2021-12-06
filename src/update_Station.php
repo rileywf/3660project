@@ -1,7 +1,7 @@
 <html>
 	<h1>Update Station</h1>
 	<body>
-	<h2>Which Station to Update</h2>
+	<h2>Select which Station to Update</h2>
 		<?php
 			if(isset($_COOKIE["username"])) {
 				$username = $_COOKIE["username"];
@@ -20,7 +20,7 @@
 					echo "</select><br><br>";
 				}
 
-				echo "<input type=submit name=\"Submit\" value=\"Next\">";
+				echo "<input type=submit name=\"Submit\" value=\"Update Station\">";
 				echo "</form>";
 				echo "<br><br><a href=\"main.php\">Return</a> to Home Page.";
 			} else {
