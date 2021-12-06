@@ -15,6 +15,7 @@
           echo "<table class=\"table table-striped table-hover\">";
           echo "<thead><tr>";
           echo "<th scope=\"col\">Station</th>";
+          echo "<th scope=\"col\">Route</th>";
           echo "<th scope=\"col\">Arrivals</th>";
           echo "<th scope=\"col\">Delete</th>";
           echo "</tr></thead>";
@@ -22,6 +23,7 @@
           while($val = mysqli_fetch_array($result)) {
             echo "<tr>";
             echo "<th scope=\"row\">$val[ID]</th>";
+            echo "<td>$val[ID2]</td>";
             echo "<td>$val[arrivals]</td>";
             echo "<td><a href=\"deleteTime.php?id=$val[ID]\">Delete</a></td>";
             echo "</tr>";
