@@ -1,5 +1,5 @@
 <html>
-	<h1>Update Conductor</h1>
+	<h1>Update Train</h1>
 	<body>
 	<h2>Which Train to Update</h2>
 		<?php
