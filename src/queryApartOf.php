@@ -83,9 +83,9 @@ if(isset($_COOKIE["username"])) {
     while($val = mysqli_fetch_array($result))
     {
       echo "<tr>";
-      echo "<th scope=\"row\">$val[routeid]</th>";
-      echo "<td>$val[sname]</td>";
-      echo "<td>$val[snumber]</td>";
+      echo "<th scope=\"row\">$val[ID]</th>";
+      echo "<td>$val[name]</td>";
+      echo "<td>$val[stationNumber]</td>";
       echo "</tr>";
     }
 
