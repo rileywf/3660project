@@ -130,7 +130,7 @@ DROP TABLE IF EXISTS `TIMES`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `TIMES` (
   `ID` char(255) NOT NULL,
-  'ID2' int(11) NOT NULL,
+  `ID2` int(11) NOT NULL,
   `arrivals` time DEFAULT NULL,
   PRIMARY KEY (`arrivals`),
   CONSTRAINT `TIMES_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `STATION` (`name`)
