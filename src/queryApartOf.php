@@ -1,3 +1,8 @@
+<html>
+  <body>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 <?php
 
 if(isset($_COOKIE["username"])) {
@@ -10,74 +15,83 @@ if(isset($_COOKIE["username"])) {
       exit;
     }
 
+    $routeid = 0;
+    $sname = 0;
+    $snumber = 0;
+
+    $routeid = $_POST['routeid'];
+    $sname = $_POST['sname'];
+    $snumber = $_POST['snumber'];
+
     $condcounter = 0;
  //selection statment
     $sql = "select * from Apart_Of";
 
-    if(!empty($_POST['routeid']) or !empty($_POST['sname']) or !empty($_POST['snumber']))
+    if(!empty($routeid) or !empty($sname) or !empty($snumber))
     {
       $sql .= " where";
     }
-    
 
-    if (!empty($_POST['routeid']))
+
+    if (!empty($routeid))
     {
       if($condcounter > 0)
       {
         $sql .= " and";
       };
-      $sql .= " ID='$_POST[routeid]'";
+      $sql .= " ID='$routeid'";
       $condcounter++;
     }
 
-    if (!empty($_POST['sname']))
+    if (!empty($sname))
     {
       if($condcounter > 0)
       {
         $sql .= " and";
       }
-      $sql .= " name='$_POST[sname]'";
+      $sql .= " name='$sname'";
       $condcounter++;
     }
 
-    if (!empty($_POST['snumber']))
+    if (!empty($snumber))
     {
       if($condcounter > 0)
       {
         $sql .= " and";
       }
-      $sql .= " stationNumber='$_POST[snumber]'";
+      $sql .= " stationNumber='$snumber'";
       $condcounter++;
     }
-
 
     $result = $conn->query($sql);
 
     if($conn->query($sql))
     {
-      echo "<tale border='1' style='width:100%'>
-      <tr>
-      <th>Route ID</th>
-      <th>Station Name</th>
-      <th>Station Number</th>
-      </tr>";
+      echo "<table class=\"table table-striped table-hover\">";
+      echo "<thead><tr>";
+      echo "<th scope=\"col\">Route ID</th>";
+      echo "<th scope=\"col\">Station Name</th>";
+      echo "<th scope=\"col\">Station Number</th>";
+      echo "</tr></thead>";
+      echo "<tbody>";
+    }
+    else {
+      $err = $conn->errono;
+      printf("error: %d", $err);
+    }
 
-    while($row = mysqli_fetch_array($result))
+    while($val = mysqli_fetch_array($result))
     {
       echo "<tr>";
-      echo "<td>" . $row['routeid'] . "</td>";
-      echo "<td>" . $row['sname'] . "</td>";
-      echo "<td>" . $row['snumber'] . "</td>";
+      echo "<th scope=\"row\">$val[routeid]</th>";
+      echo "<td>$val[sname]</td>";
+      echo "<td>$val[snumber]</td>";
       echo "</tr>";
     }
+
+    echo "</tbody>";
     echo "</table>";
-  }
-  else
-  {
-    $err = $conn->errono;
-    printf("error: %d", $err);
-  }
-  echo "<a href=\"main.php\">Return to homepage<\a>";
+    echo "<a href=\"query_Apart_Of.php\">Return to Route Assignment Query</a>";
 
 
 } else {

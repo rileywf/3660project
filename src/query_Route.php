@@ -4,23 +4,21 @@
 		<form action="queryRoute.php" method=post>
 		Route Name: <input type=text name="rname" size=20><br><br>
 
+		Route ID: <input type=text name="rid" size=20><br><br>
+
 		<label for="typesOfTrain">Choose a Train type:</label>
-		<select name="sname" id="typesOfTrain">
+		<select name="traintype" id="typesOfTrain">
+		<option value=""> - </option>
 		<option value="Cargo">Cargo</option>
 		<option value="Passanger">Passenger</option>
 		</select> <br> <br>
 
-		Route ID: <input type=text name="IDname" size=20><br><br>
 
+		Leave all Fields Blank to query all<br><br>
 		<input type=submit name="Submit" value="Query">
-	
+
 		</form>
 
-		<form action="queryRouteAll.php" method=post>
-			<input type=submit value="Display all">
-		</form>
-
-		<a href=\
-		
+		<a href="main.php">Return to homepage</a>
 	</body>
 </html>

@@ -1,3 +1,8 @@
+<html>
+  <body>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 <?php
 
 if(isset($_COOKIE["username"])) {
@@ -10,114 +15,127 @@ if(isset($_COOKIE["username"])) {
       exit;
     }
 
+    $cname = 0;
+    $cid = 0;
+    $cphone = 0;
+    $cage = 0;
+    $routeid = 0;
+    $cert = 0;
+
+    $cname = $_POST['cname'];
+    $cid = $_POST['cid'];
+    $cphone = $_POST['cphone'];
+    $cage = $_POST['cage'];
+    $trainid = $_POST['trainid'];
+    $cert = $_POST['certification'];
+
+
     $condcounter = 0;
-/*
-    $sql = "select * from CONDUCTOR
-            where condName='$_POST[cname]'
-            or ID='$_POST[cid]'
-            or phoneNum='$_POST[cphone]'
-            or age='$_POST[cage]'
-            or rID='$_POST[routeid]'
-            or Certification='$_POST[certification]'";
-*/
-            
-            //selection statment
-            $sql = "select * from CONDUCTOR
-                    where";
 
-            if (!empty($_POST['cname']))
-            {
-              if($condcounter > 0)
-              {
-                $sql .= " and";
-              }
-              $sql .= " condName='$_POST[cname]'";
-              $condcounter++;
-            }
+        //selection statment
+    $sql = "select * from CONDUCTOR";
 
-            if (!empty($_POST['cid']))
-            {
-              if($condcounter > 0)
-              {
-                $sql .= " and";
-              }
-              $sql .= " ID='$_POST[cid]'";
-              $condcounter++;
-            }
-
-            if (!empty($_POST['cphone']))
-            {
-              if($condcounter > 0)
-              {
-                $sql .= " and";
-              }
-              $sql .= " phoneNum='$_POST[cphone]'";
-              $condcounter++;
-            }
-
-            if (!empty($_POST['cage']))
-            {
-              if($condcounter > 0)
-              {
-                $sql .= " and";
-              }
-              $sql .= " age='$_POST[cage]'";
-              $condcounter++;
-            }
-
-            if (!empty($_POST['routeid']))
-            {
-              if($condcounter > 0)
-              {
-                $sql .= " and";
-              }
-              $sql .= " rID='$_POST[routeid]'";
-              $condcounter++;
-            }
-
-            if (!empty($_POST['certification']))
-            {
-              if($condcounter > 0)
-              {
-                $sql .= " and";
-              }
-              $sql .= " Certification='$_POST[certification]'";
-              $condcounter++;
-            }
-
-    $result = $conn->query($sql);
-
-    if($conn->query($sql))
+    if(!empty($cname) or !empty($cid) or !empty($cphone) or !empty($cage) or !empty($trainid) or !empty($cert))
     {
-      echo "<tale border='1' style='width:100%'>
-      <tr>
-      <th>Name</th>
-      <th>ID</th>
-      <th>Phone Number</th>
-      <th>Age</th>
-      <th>Assigned Route</th>
-      <th>Certification</th>
-      </tr>";
-
-    while($row = mysqli_fetch_array($result))
-    {
-      echo "<tr>";
-      echo "<td>" . $row['cname'] . "</td>";
-      echo "<td>" . $row['cid'] . "</td>";
-      echo "<td>" . $row['cphone'] . "</td>";
-      echo "<td>" . $row['cage'] . "</td>";
-      echo "<td>" . $row['routeid'] . "</td>";
-      echo "<td>" . $row['cert'] . "</td>";
-      echo "</tr>";
+      $sql .= " where";
     }
-    echo "</table>";
-  }
-  else
-  {
-    $err = $conn->errono;
-    printf("error: %d", $err);
-  }
-  echo "<a href=\"main.php\">Return to homepage<\a>";
+
+    if (!empty($cname))
+    {
+      if($condcounter > 0)
+      {
+        $sql .= " and";
+      }
+      $sql .= " condName='$cname'";
+      $condcounter++;
+    }
+
+        if (!empty($cid))
+        {
+          if($condcounter > 0)
+          {
+            $sql .= " and";
+          }
+          $sql .= " ID='$cid'";
+          $condcounter++;
+        }
+
+        if (!empty($cphone))
+        {
+          if($condcounter > 0)
+          {
+            $sql .= " and";
+          }
+          $sql .= " phoneNum='$cphone'";
+          $condcounter++;
+        }
+
+        if (!empty($cage))
+        {
+          if($condcounter > 0)
+          {
+            $sql .= " and";
+          }
+          $sql .= " age='$cage'";
+          $condcounter++;
+        }
+
+        if (!empty($routeid))
+        {
+          if($condcounter > 0)
+          {
+            $sql .= " and";
+          }
+          $sql .= " rID='$routeid'";
+          $condcounter++;
+        }
+
+        if (!empty($cert))
+        {
+          if($condcounter > 0)
+          {
+            $sql .= " and";
+          }
+          $sql .= " Certification='$cert'";
+          $condcounter++;
+        }
+
+        $result = $conn->query($sql);
+
+        if($conn->query($sql))
+        {
+          echo "<table class=\"table table-striped table-hover\">";
+          echo "<thead><tr>";
+          echo "<th scope=\"col\">Name</th>";
+          echo "<th scope=\"col\">Conductor ID</th>";
+          echo "<th scope=\"col\">Phone Number</th>";
+          echo "<th scope=\"col\">Age</th>";
+          echo "<th scope=\"col\">Assigned Train</th>";
+          echo "<th scope=\"col\">Certified?</th>";
+          echo "</tr></thead>";
+          echo "<tbody>";
+        }
+
+        else {
+          $err = $conn->errono;
+          printf("error: %d", $err);
+        }
+
+        while($val = mysqli_fetch_array($result))
+        {
+          echo "<tr>";
+          echo "<th scope=\"row\">$val[condName]</th>";
+          echo "<td>$val[ID]</td>";
+          echo "<td>$val[phoneNum]</td>";
+          echo "<td>$val[age]</td>";
+          echo "<td>$val[tID]</td>";
+          echo "<td>$val[Certification]</td>";
+          echo "</tr>";
+        }
+
+        echo "</tbody>";
+        echo "</table>";
+        echo "<a href=\"query_Conductor.php\">Return to Conductor Query</a>";
 
 } else {
     echo "<h3>You are not logged in!</h3><p> <a href=\"index.php\">Login First</a></p>";

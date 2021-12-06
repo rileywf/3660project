@@ -20,9 +20,12 @@
       <option value="No">No</option>
       </select>
 
+      Leave all Fields Blank to query all<br><br>
       <input type=submit name="Submit" value="Query">
 
     </form>
+
+    <a href="main.php">Return to homepage</a>
 
   </body>
 </html>
