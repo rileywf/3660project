@@ -129,11 +129,10 @@ DROP TABLE IF EXISTS `TIMES`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `TIMES` (
-  `ID` int(11) NOT NULL,
-  `departure` int(11) DEFAULT NULL,
+  `ID` char(255) NOT NULL,
   `arrivals` char(255) DEFAULT NULL,
   PRIMARY KEY (`ID`),
-  CONSTRAINT `TIMES_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `ROUTES` (`ID`)
+  CONSTRAINT `TIMES_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `STATION` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
