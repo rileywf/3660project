@@ -4,19 +4,19 @@ if(isset($_COOKIE["username"])) {
   $username = $_COOKIE["username"];
   $password = $_COOKIE["password"];
   $conn = new mysqli("vconroy.cs.uleth.ca",$username,$password,$username);
-  $val = $_GET['name'];
-  $sql = "delete from STATION where name='$val'";
+  $val = $_GET['id'];
+  $sql = "delete from Apart_Of where ID='$val'";
   if($conn->query($sql)) {
-    echo "<h3>Station Deleted</h3>";
-    echo "<br><a href=\"delete_Station.php\">Return</a> back to Station.";
+    echo "<h3>Assigned Deleted</h3>";
+    echo "<br><a href=\"delete_ApartOf.php\">Return</a> back to Deleting assigning.";
   } else {
     $err = $conn->errno;
     $errtext = $conn->error;
     if($err == 1451) {
-      echo "<h3>Cannot delete STATION $_GET[name]!</h3>";
+      echo "<h3>Cannot delete Apart_Of $_GET[id]!</h3>";
       echo $errtext;
-      echo "Something happened and cannot delete $_GET[name]!";
-      echo "<br><br><a href=\"delete_Station.php\">Return</a> to delete station Page.";
+      echo "Something happened and cannot delete $_GET[id]!";
+      echo "<br><br><a href=\"delete_Apart_Of.php\">Return</a> to Deleting assigning.";
     } else {
       echo "You got error code of $err". $errtext;
       echo "<br><br><a href=\"main.php\">Return</a> to Home Page.";

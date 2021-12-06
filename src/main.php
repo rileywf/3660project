@@ -38,6 +38,7 @@
         <li><a href="delete_Route.php">Delete a Route</a></li>
         <li><a href="delete_Station.php">Delete a Station</a></li>
         <li><a href="delete_Time.php">Delete time</a></li>
+        <li><a href="delete_ApartOf.php">Delete Route/Station Assignment</a></li>
     </ul>
     <p><a href="logout.php">Logout</a></p>
 </html>
