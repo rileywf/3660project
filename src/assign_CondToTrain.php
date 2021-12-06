@@ -24,7 +24,7 @@
 
       $sql2=  "select condName from CONDUCTOR";
       $result2 = $conn->query($sql2);
-      if($result->num_rows != 0) {
+      if($result2->num_rows != 0) {
         echo "Conductor Name: <select name=\"condName\">";
         while($val2 = $result2->fetch_assoc()) {
           echo "<option value='$val2[condName]'>$val2[condName]</option>";

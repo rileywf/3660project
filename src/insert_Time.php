@@ -2,7 +2,7 @@
 <head>
 <title>Railroad System</title>
 </head>
-<h1>Pick a Time for arrival at Station</h1>
+<h1>Pick a Train arrtival Time at Station</h1>
 <body>
   <?php
     if(isset($_COOKIE["username"])) {
@@ -18,6 +18,16 @@
         echo "Station Name: <select name=\"name\">";
         while($val = $result->fetch_assoc()) {
           echo "<option value='$val[name]'>$val[name]</option>";
+        }
+        echo "</select><br><br>";
+      }
+
+      $sql2=  "select ID from TRAIN";
+      $result2 = $conn->query($sql2);
+      if($result->num_rows != 0) {
+        echo "Train ID: <select name=\"id\">";
+        while($val2 = $result2->fetch_assoc()) {
+          echo "<option value='$val2[ID]'>$val2[ID]</option>";
         }
         echo "</select><br><br>";
       }
