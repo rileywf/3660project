@@ -1,22 +1,31 @@
 <html>
-	<h1>Update Station</h1>
+	<h1>Update Conductor</h1>
 	<body>
-	<h2>Specify What Station to Update</h2>
-		<form action="updateStation.php" method=post>
-      Station Name: <input type=text name="SN" value="" size=20><br><br>
+	<h2>Which Station to Update</h2>
+		<?php
+			if(isset($_COOKIE["username"])) {
+				$username = $_COOKIE["username"];
+				$password = $_COOKIE["password"];
+				$conn = new mysqli("vconroy.cs.uleth.ca",$username,$password,$username);
 
-      Opening Time: <input type=text name="OT" value="" size=20><br><br>
+				echo "<form action=\"updateStation.php\" method=post>";
 
-      Closing Name: <input type=text name="CT" value="" size=20><br><br>
+				$sql=  "select name from STATION";
+				$result = $conn->query($sql);
+				if($result->num_rows != 0) {
+					echo "Station Name: <select name=\"name\">";
+					while($val = $result->fetch_assoc()) {
+						echo "<option value='$val[name]'>$val[name]</option>";
+					}
+					echo "</select><br><br>";
+				}
 
-      Address: <input type=text name="loc" value="" size=20><br><br>
-
-      <label for="Type">Type of station:</label>
-      <select name="type" id="Type">
-      <option value="Cargo">Cargo</option>
-      <option value="Passanger">Passanger</option>
-      </select> <br> <br>
-
-      <input type=submit name="Submit" value="Update Station">
+				echo "<input type=submit name=\"Submit\" value=\"Next\">";
+				echo "</form>";
+				echo "<br><br><a href=\"main.php\">Return</a> to Home Page.";
+			} else {
+				echo "<h3>You are not logged in!</h3><p> <a href=\"index.php\">Login First</a></p>";
+			}
+		 ?>
 	</body>
 </html>

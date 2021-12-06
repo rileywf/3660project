@@ -4,7 +4,7 @@ $username = $_COOKIE["username"];
 $password = $_COOKIE["password"];
 
 $conn = new mysqli("vconroy.cs.uleth.ca",$username,$password,$username);
-$sql = "update ROUTES set name='$_POST[rname]' where name='$_POST[oldname]'";
+$sql = "update ROUTES set name ='$_POST[name]', typesOfTrain = '$_POST[typesOfTrain]' where ID ='$_POST[ID]'";
 $result = $conn->query($sql);
 
 if($result)
@@ -15,7 +15,7 @@ if($result)
    $err = $conn->errno();
    if($err == 1062)
    {
-      echo "<p>Route name $_POST[rname] already has that name!</p>";
+      echo "<p>Route already has that name!</p>";
    } else {
       echo "error code $err";
    }

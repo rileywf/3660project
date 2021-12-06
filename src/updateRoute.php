@@ -12,36 +12,18 @@ if(isset($_COOKIE["username"])) {
      echo "Connection Error!";
      exit;
    }
-	$sql = "select * from ROUTES
-	    where name='$_POST[rname]'
-	    and typesOfTrain='$_POST[sname]'
-	    and ID='$_POST[IDname]'";
+     echo "<h2> What changes do you want to change </h2>";
+     echo "<input type=hidden name=\"ID\" value=\"$_POST[ID]\">";
 
-	$result = $conn->query($sql);
-	if(!$result)
-	{
-	   echo "Problem executing select!";
-	   exit;
-	}
+	   echo "Route Name: <input type=text name=\"name\" value=\"\"><br><br>";
 
-if($result->num_rows!= 0)
-	{
-	   $rec=$result->fetch_assoc();
-     echo "<h2> What you want turn the Route into </h2>";
-	   echo "Route Name: <input type=text name=\"rname\" value=\"$rec[rname]\"><br><br>";
-	   echo "<label for=\"typesOfTrain\">Choose a Train type:</label>
-     <select name=\"sname\" id=\"typesOfTrain\">
-     <option value=\"Cargo\">Cargo</option>
-     <option value=\"Passanger\">Passanger</option>
-   </select> <br> <br>";
-	   echo "Route ID: <input type=text name=\"ID\" value=\"$rec[IDname]\"><br><br>";
-	   echo "<input type=hidden name=\"oldname\" value=\"$_POST[rname]\">";
+     echo "<label for=\"type\">Train Type:</label>";
+     echo "<select name=\"typesOfTrain\" id=\"typesOfTrain\">";
+     echo "<option value=\"Cargo\">Cargo</option>";
+     echo "<option value=\"Passanger\">Passenger</option>";
+     echo "</select> <br> <br>";
+
 	   echo "<input type=submit name=\"submit\" value=\"Update\">";
-	}
-	else
-	{
-		echo "<p>Umm...you may want to enter some data. ;) </p>";
-	}
 
 	echo "</form>";
   echo "<a href=\"main.php\">Return</a> to Home Page.";

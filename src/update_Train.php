@@ -1,27 +1,31 @@
 <html>
-  <head>
-    <title>Railroad System</title>
-  </head>
-  <h1>Update a Train</h1>
-  <body>
+	<h1>Update Conductor</h1>
+	<body>
+	<h2>Which Train to Update</h2>
+		<?php
+			if(isset($_COOKIE["username"])) {
+				$username = $_COOKIE["username"];
+				$password = $_COOKIE["password"];
+				$conn = new mysqli("vconroy.cs.uleth.ca",$username,$password,$username);
 
-       <form action="updateTrain.php" method=post>
+				echo "<form action=\"updateTrain.php\" method=post>";
 
-         <label for="Fuel">Choose a Train fuel type:</label>
-         <select name="Fuel" id="Fuel">
-         <option value="Diesel">Diesel</option>
-         <option value="Electric">Electric</option>
-         </select> <br> <br>
+				$sql=  "select ID from TRAIN";
+				$result = $conn->query($sql);
+				if($result->num_rows != 0) {
+					echo "Train ID: <select name=\"ID\">";
+					while($val = $result->fetch_assoc()) {
+						echo "<option value='$val[ID]'>$val[ID]</option>";
+					}
+					echo "</select><br><br>";
+				}
 
-         <label for="Type">Choose a Train type:</label>
-         <select name="Type" id="Type">
-         <option value="Cargo">Cargo</option>
-         <option value="Passanger">Passanger</option>
-         </select> <br> <br>
-
-         Passanger Capacity: <input type=text name="pasg" value="" size=20><br><br>
-
-         <input type=submit name="Submit" value="Insert">
-
-  </body>
+				echo "<input type=submit name=\"Submit\" value=\"Next\">";
+				echo "</form>";
+				echo "<br><br><a href=\"main.php\">Return</a> to Home Page.";
+			} else {
+				echo "<h3>You are not logged in!</h3><p> <a href=\"index.php\">Login First</a></p>";
+			}
+		 ?>
+	</body>
 </html>
