@@ -2,7 +2,7 @@
 insert into TRAIN (Fuel, Type, passenger_capacity) values ('Electric', 'Passenger', '69');
 insert into TRAIN (Fuel, Type, passenger_capacity) values ('Electric', 'Passenger', '19');
 insert into TRAIN (Fuel, Type) values ('Electric', 'Cargo');
-insert into TRAIN (Fuel, Type, passenger_capacity) values ('Diesel', 'Passenger', '69');
+insert into TRAIN (Fuel, Type, passenger_capacity) values ('Diesel', 'Passenger', '50');
 insert into TRAIN (Fuel, Type) values ('Diesel', 'Cargo');
 insert into TRAIN (Fuel, Type) values ('Diesel', 'Cargo');
 

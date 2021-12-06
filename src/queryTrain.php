@@ -108,7 +108,7 @@ if(isset($_COOKIE["username"])) {
 
     while($val = mysqli_fetch_array($result))
     {
-      $sql2 = "select name from ROUTES where ID='$val[ID]'";
+      $sql2 = "select name from ROUTES where ID='$val[rID]'";
       $result2 = $conn->query($sql2);
       echo "<tr>";
       echo "<th scope=\"row\">$val[ID]</th>";
