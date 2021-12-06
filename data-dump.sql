@@ -15,7 +15,31 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+--
+-- Table structure for table `Apart_Of`
+--
 
+DROP TABLE IF EXISTS `Apart_Of`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Apart_Of` (
+  `ID` int(11) NOT NULL,
+  `name` char(255) NOT NULL,
+  `stationNumber` int(11) DEFAULT NULL,
+  CONSTRAINT `Apart_Of_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `ROUTES` (`ID`),
+  CONSTRAINT `Apart_Of_ibfk_2` FOREIGN KEY (`name`) REFERENCES `STATION` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Dumping data for table `Apart_Of`
+--
+
+LOCK TABLES `Apart_Of` WRITE;
+/*!40000 ALTER TABLE `Apart_Of` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Apart_Of` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `CONDUCTOR`
@@ -32,8 +56,8 @@ CREATE TABLE `CONDUCTOR` (
   `age` int(11) DEFAULT NULL,
   `Certification` enum('Yes','No') DEFAULT NULL,
   PRIMARY KEY (`ID`),
-  KEY `rID` (`rID`),
-  CONSTRAINT `CONDUCTOR_ibfk_1` FOREIGN KEY (`rID`) REFERENCES `TRAIN` (`ID`)
+  KEY `tID` (`tID`),
+  CONSTRAINT `CONDUCTOR_ibfk_1` FOREIGN KEY (`tID`) REFERENCES `TRAIN` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -67,7 +91,7 @@ CREATE TABLE `ROUTES` (
 
 LOCK TABLES `ROUTES` WRITE;
 /*!40000 ALTER TABLE `ROUTES` DISABLE KEYS */;
-INSERT INTO `ROUTES` VALUES (1,'Electric','RoutyRoute'),(2,'Ghost','Haunted Railway');
+INSERT INTO `ROUTES` VALUES (1,'Electric','RoutyRoute'),(2,'Ghost','Haunted Railway'), (3, 'Cargo', 'pls');
 /*!40000 ALTER TABLE `ROUTES` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,33 +122,6 @@ LOCK TABLES `STATION` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Apart_Of`
---
-
-DROP TABLE IF EXISTS `Apart_Of`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Apart_Of` (
-  `ID` int(11) NOT NULL,
-  `name` char(255) NOT NULL,
-  `stationNumber` int(11) DEFAULT NULL,
-  CONSTRAINT `Apart_Of_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `ROUTES` (`ID`),
-  CONSTRAINT `Apart_Of_ibfk_2` FOREIGN KEY (`name`) REFERENCES `STATION` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Apart_Of`
---
-
-LOCK TABLES `Apart_Of` WRITE;
-/*!40000 ALTER TABLE `Apart_Of` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Apart_Of` ENABLE KEYS */;
-UNLOCK TABLES;
-
-
-
---
 -- Table structure for table `TIMES`
 --
 
@@ -132,11 +129,10 @@ DROP TABLE IF EXISTS `TIMES`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `TIMES` (
-  `ID` int(11) NOT NULL,
-  `times` int(11) DEFAULT NULL,
-  `arrivesTimes` char(255) DEFAULT NULL,
+  `ID` char(255) NOT NULL,
+  `arrivals` char(255) DEFAULT NULL,
   PRIMARY KEY (`ID`),
-  CONSTRAINT `TIMES_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `ROUTES` (`ID`)
+  CONSTRAINT `TIMES_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `STATION` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

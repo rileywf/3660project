@@ -4,7 +4,7 @@
     <form action="queryTrain.php" method=post>
       Train ID: <input type=text name="tid" size=20><br><br>
 
-      Route ID: <input type=text name="rid" size=20><br><br>
+      Assigned Route ID: <input type=text name="rid" size=20><br><br>
 
       <label for="fuel">Train Fuel Type:</label>
 
@@ -23,9 +23,12 @@
 
       Passenger Capacity: <input type=text name="pcapacity" size 20><br><br>
 
-    <input type=submit name="Submit" value="Query">
+      Leave all Fields Blank to query all<br><br>
+      <input type=submit name="Submit" value="Query">
 
-    </form>
+      </form>
+
+      <a href="main.php">Return to homepage</a>
 
   </body>
 </html>
