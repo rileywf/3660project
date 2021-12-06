@@ -84,8 +84,8 @@ if(isset($_COOKIE["username"])) {
     {
       echo "<tr>";
       echo "<th scope=\"row\">$val[ID]</th>";
-      echo "<td>$val[arrivals]</td>";
       echo "<td>$val[ID2]</td>";
+      echo "<td>$val[arrivals]</td>";
       echo "</tr>";
     }
 

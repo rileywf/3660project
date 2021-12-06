@@ -31,3 +31,13 @@ insert into STATION (name, openingTime, closingTime, location, Type) values ('Br
 insert into STATION (name, openingTime, closingTime, location, Type) values ('P&H Grain', '10:00', '22:00', 'Lethbridge', 'Cargo');
 insert into STATION (name, openingTime, closingTime, location, Type) values ('Stalkers Station', '6:00', '20:00', 'The Zone', 'Passanger');
 insert into STATION (name, location, Type) values ('The End of The Line', 'Hades', 'Passanger');
+
+  /*default Apart_Of */
+  insert into Apart_Of (ID, name, stationNumber) values ('1', 'Brunch Stop', '1');
+  insert into Apart_Of (ID, name, stationNumber) values ('2', 'Brunch Stop', '2');
+  insert into Apart_Of (ID, name, stationNumber) values ('3', 'Brunch Stop', '3');
+
+  /*default TIMES */
+  insert into TIMES (ID, Id2, arrivals) values ('Brunch Stop', '1', '9:00 am');
+  insert into TIMES (ID, Id2, arrivals) values ('Brunch Stop', '2', '10:00 am');
+  insert into TIMES (ID, Id2, arrivals) values ('Brunch Stop', '3', '11:00 am');
