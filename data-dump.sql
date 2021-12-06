@@ -121,31 +121,6 @@ LOCK TABLES `STATION` WRITE;
 /*!40000 ALTER TABLE `STATION` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `TIMES`
---
-
-DROP TABLE IF EXISTS `TIMES`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `TIMES` (
-  `ID` char(255) NOT NULL,
-  `ID2` int(11) NOT NULL,
-  `arrivals` time DEFAULT NULL,
-  PRIMARY KEY (`arrivals`),
-  CONSTRAINT `TIMES_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `STATION` (`name`),
-  CONSTRAINT `TIMES_ibfk_2` FOREIGN KEY (`ID2`) REFERENCES `TRAIN` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `TIMES`
---
-
-LOCK TABLES `TIMES` WRITE;
-/*!40000 ALTER TABLE `TIMES` DISABLE KEYS */;
-/*!40000 ALTER TABLE `TIMES` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `TRAIN`
@@ -174,6 +149,33 @@ LOCK TABLES `TRAIN` WRITE;
 /*!40000 ALTER TABLE `TRAIN` DISABLE KEYS */;
 /*!40000 ALTER TABLE `TRAIN` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `TIMES`
+--
+
+DROP TABLE IF EXISTS `TIMES`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `TIMES` (
+  `ID` char(255) NOT NULL,
+  `ID2` int(11) NOT NULL,
+  `arrivals` char(255) DEFAULT NULL,
+  PRIMARY KEY (`arrivals`),
+  CONSTRAINT `TIMES_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `STATION` (`name`),
+  CONSTRAINT `TIMES_ibfk_2` FOREIGN KEY (`ID2`) REFERENCES `TRAIN` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `TIMES`
+--
+
+LOCK TABLES `TIMES` WRITE;
+/*!40000 ALTER TABLE `TIMES` DISABLE KEYS */;
+/*!40000 ALTER TABLE `TIMES` ENABLE KEYS */;
+UNLOCK TABLES;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
