@@ -1,7 +1,10 @@
 <html>
+<head>
 	<h1>Update Train</h1>
 	<body>
-	<h2>Which Train to Update</h2>
+	<h2>Specify which Train to Update</h2>
+</head>
+<body>
 		<?php
 			if(isset($_COOKIE["username"])) {
 				$username = $_COOKIE["username"];
