@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `ROUTES`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ROUTES` (
-  `ID` int(11) AUTO_INCREMENT,
+  `ID` int(11) Not NULL AUTO_INCREMENT,
   `typesOfTrain` enum('Cargo', 'Passanger') DEFAULT NULL,
   `name` char(255) DEFAULT NULL,
   PRIMARY KEY (`ID`)
@@ -49,7 +49,7 @@ DROP TABLE IF EXISTS `STATION`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `STATION` (
-  `name` char(255),
+  `name` char(255) Not NULL,
   `openingTime` int(11) DEFAULT NULL,
   `closingTime` int(11) DEFAULT NULL,
   `location` char(255) DEFAULT NULL,
@@ -76,7 +76,7 @@ DROP TABLE IF EXISTS `TRAIN`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `TRAIN` (
-  `ID` int(11) AUTO_INCREMENT,
+  `ID` int(11) Not NULL AUTO_INCREMENT,
   `rID` int(11) DEFAULT NULL,
   `Fuel` enum('Diesel', 'Electric') DEFAULT NULL,
   `Type` enum('Cargo', 'Passenger') DEFAULT NULL,
@@ -105,7 +105,7 @@ DROP TABLE IF EXISTS `CONDUCTOR`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `CONDUCTOR` (
-  `ID` int(11) AUTO_INCREMENT,
+  `ID` int(11) Not NULL AUTO_INCREMENT,
   `tID` int(11) DEFAULT NULL,
   `phoneNum` int(11) DEFAULT NULL,
   `condName` char(255) DEFAULT NULL,
@@ -136,8 +136,8 @@ DROP TABLE IF EXISTS `Apart_Of`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Apart_Of` (
-  `ID` int(11),
-  `name` char(255),
+  `ID` int(11) Not NULL,
+  `name` char(255) Not NULL,
   `stationNumber` int(11) DEFAULT NULL,
   CONSTRAINT `Apart_Of_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `ROUTES` (`ID`),
   CONSTRAINT `Apart_Of_ibfk_2` FOREIGN KEY (`name`) REFERENCES `STATION` (`name`)
@@ -162,8 +162,8 @@ DROP TABLE IF EXISTS `TIMES`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `TIMES` (
-  `ID` char(255),
-  `ID2` int(11),
+  `ID` char(255) Not NULL,
+  `ID2` int(11) Not NULL,
   `arrivals` char(255) DEFAULT NULL,
   PRIMARY KEY (`arrivals`),
   CONSTRAINT `TIMES_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `STATION` (`name`),
