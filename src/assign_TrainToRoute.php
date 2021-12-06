@@ -34,6 +34,7 @@
 
       echo "<input type=submit name=\"Submit\" value=\"Insert\">";
       echo "</form>";
+      echo "<br><br><a href=\"main.php\">Return</a> to Home Page.";
     } else {
       echo "<h3>You are not logged in!</h3><p> <a href=\"index.php\">Login First</a></p>";
     }

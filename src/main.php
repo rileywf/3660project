@@ -6,6 +6,7 @@
         <li><a href="insert_Conductor.php">Insert a Conductor</a></li>
         <li><a href="insert_Route.php">Insert a Route</a></li>
         <li><a href="insert_Station.php">Insert a Station</a></li>
+        <li><a href="insert_Time.php">Add a Arrival Time for Station</a></li>
     </ul>
     <h2> Assign </h2>
     <ul>

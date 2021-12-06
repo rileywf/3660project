@@ -2,7 +2,7 @@
 <head>
 <title>Railroad System</title>
 </head>
-<h1>Assign a Conductor to Train</h1>
+<h1>Pick a Time for arrival at Station</h1>
 <body>
   <?php
     if(isset($_COOKIE["username"])) {
@@ -10,27 +10,19 @@
       $password = $_COOKIE["password"];
       $conn = new mysqli("vconroy.cs.uleth.ca",$username,$password,$username);
 
-      echo "<form action=\"assignCondToTrain.php\" method=post>";
+      echo "<form action=\"insertTime.php\" method=post>";
 
-      $sql=  "select ID from TRAIN";
+      $sql=  "select name from STATION";
       $result = $conn->query($sql);
       if($result->num_rows != 0) {
-        echo "Train ID: <select name=\"ID\">";
+        echo "Station Name: <select name=\"name\">";
         while($val = $result->fetch_assoc()) {
-          echo "<option value='$val[ID]'>$val[ID]</option>";
+          echo "<option value='$val[name]'>$val[name]</option>";
         }
         echo "</select><br><br>";
       }
 
-      $sql2=  "select condName from CONDUCTOR";
-      $result2 = $conn->query($sql2);
-      if($result->num_rows != 0) {
-        echo "Conductor Name: <select name=\"condName\">";
-        while($val2 = $result2->fetch_assoc()) {
-          echo "<option value='$val2[condName]'>$val2[condName]</option>";
-        }
-        echo "</select><br><br>";
-      }
+      echo "Arrival Time: <input type=text name=\"AT\" value=\"\" size=20><br><br>";
 
       echo "<input type=submit name=\"Submit\" value=\"Insert\">";
       echo "</form>";

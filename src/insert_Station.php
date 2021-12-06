@@ -9,7 +9,7 @@
 
     Opening Time: <input type=text name="OT" value="" size=20><br><br>
 
-    Closing Name: <input type=text name="CT" value="" size=20><br><br>
+    Closing Time: <input type=text name="CT" value="" size=20><br><br>
 
     Address: <input type=text name="loc" value="" size=20><br><br>
 
