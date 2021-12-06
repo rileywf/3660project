@@ -20,7 +20,7 @@
 					echo "</select><br><br>";
 				}
 
-				echo "<input type=submit name=\"Submit\" value=\"Update Route\">";
+				echo "<input type=submit name=\"Submit\" value=\"Next\">";
 				echo "</form>";
 				echo "<br><br><a href=\"main.php\">Return</a> to Home Page.";
 			} else {

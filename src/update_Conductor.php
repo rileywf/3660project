@@ -1,7 +1,7 @@
 <html>
 	<h1>Update Conductor</h1>
 	<body>
-	<h2>Specify Which Conductor to Update</h2>
+	<h2>Which Conductor to Update</h2>
 		<?php
 			if(isset($_COOKIE["username"])) {
 				$username = $_COOKIE["username"];
@@ -20,7 +20,7 @@
 					echo "</select><br><br>";
 				}
 
-				echo "<input type=submit name=\"Submit\" value=\"Update Conductor\">";
+				echo "<input type=submit name=\"Submit\" value=\"Insert\">";
 				echo "</form>";
 				echo "<br><br><a href=\"main.php\">Return</a> to Home Page.";
 			} else {
