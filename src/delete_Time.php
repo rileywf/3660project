@@ -25,7 +25,7 @@
             echo "<th scope=\"row\">$val[ID]</th>";
             echo "<td>$val[ID2]</td>";
             echo "<td>$val[arrivals]</td>";
-            echo "<td><a href=\"deleteTime.php?id=$val[ID]\">Delete</a></td>";
+            echo "<td><a href=\"deleteTime.php?id=$val[ID2]\">Delete</a></td>";
             echo "</tr>";
           }
           echo "</tbody>";

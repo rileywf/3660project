@@ -5,7 +5,7 @@ if(isset($_COOKIE["username"])) {
   $password = $_COOKIE["password"];
   $conn = new mysqli("vconroy.cs.uleth.ca",$username,$password,$username);
   $val = $_GET['id'];
-  $sql = "delete from TIMES where ID='$val'";
+  $sql = "delete from TIMES where ID2='$val'";
   if($conn->query($sql)) {
     echo "<h3>Time Deleted</h3>";
     echo "<br><a href=\"delete_Time.php\">Return</a> back to Time delete Page";
