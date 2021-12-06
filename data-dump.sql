@@ -17,35 +17,6 @@
 
 
 --
--- Table structure for table `CONDUCTOR`
---
-
-DROP TABLE IF EXISTS `CONDUCTOR`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `CONDUCTOR` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `tID` int(11) DEFAULT NULL,
-  `phoneNum` int(11) DEFAULT NULL,
-  `condName` char(255) DEFAULT NULL,
-  `age` int(11) DEFAULT NULL,
-  `Certification` enum('Yes','No') DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `tID` (`tID`),
-  CONSTRAINT `CONDUCTOR_ibfk_1` FOREIGN KEY (`tID`) REFERENCES `TRAIN` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `CONDUCTOR`
---
-
-LOCK TABLES `CONDUCTOR` WRITE;
-/*!40000 ALTER TABLE `CONDUCTOR` DISABLE KEYS */;
-/*!40000 ALTER TABLE `CONDUCTOR` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `ROUTES`
 --
 
@@ -53,11 +24,11 @@ DROP TABLE IF EXISTS `ROUTES`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ROUTES` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID` int(11) AUTO_INCREMENT,
   `typesOfTrain` enum('Cargo', 'Passanger') DEFAULT NULL,
-  `name` char(120) DEFAULT NULL,
+  `name` char(255) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -78,7 +49,7 @@ DROP TABLE IF EXISTS `STATION`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `STATION` (
-  `name` char(255) NOT NULL,
+  `name` char(255),
   `openingTime` int(11) DEFAULT NULL,
   `closingTime` int(11) DEFAULT NULL,
   `location` char(255) DEFAULT NULL,
@@ -105,15 +76,15 @@ DROP TABLE IF EXISTS `TRAIN`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `TRAIN` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID` int(11) AUTO_INCREMENT,
   `rID` int(11) DEFAULT NULL,
   `Fuel` enum('Diesel', 'Electric') DEFAULT NULL,
   `Type` enum('Cargo', 'Passenger') DEFAULT NULL,
   `passenger_capacity` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `rID` (`rID`),
-  CONSTRAINT `TRAIN_ibfk_1` FOREIGN KEY (`rID`) REFERENCES `ROUTES` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `TRAIN_ibfk_1` FOREIGN KEY (`rID`) REFERENCES `ROUTES` (`ID`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,31 +96,37 @@ LOCK TABLES `TRAIN` WRITE;
 /*!40000 ALTER TABLE `TRAIN` ENABLE KEYS */;
 UNLOCK TABLES;
 
+
 --
--- Table structure for table `TIMES`
+-- Table structure for table `CONDUCTOR`
 --
 
-DROP TABLE IF EXISTS `TIMES`;
+DROP TABLE IF EXISTS `CONDUCTOR`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `TIMES` (
-  `ID` char(255) NOT NULL,
-  `ID2` int(11) NOT NULL,
-  `arrivals` char(255) DEFAULT NULL,
-  PRIMARY KEY (`arrivals`),
-  CONSTRAINT `TIMES_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `STATION` (`name`),
-  CONSTRAINT `TIMES_ibfk_2` FOREIGN KEY (`ID2`) REFERENCES `TRAIN` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `CONDUCTOR` (
+  `ID` int(11) AUTO_INCREMENT,
+  `tID` int(11) DEFAULT NULL,
+  `phoneNum` int(11) DEFAULT NULL,
+  `condName` char(255) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `Certification` enum('Yes','No') DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `tID` (`tID`),
+  CONSTRAINT `CONDUCTOR_ibfk_1` FOREIGN KEY (`tID`) REFERENCES `TRAIN` (`ID`)
+  ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `TIMES`
+-- Dumping data for table `CONDUCTOR`
 --
 
-LOCK TABLES `TIMES` WRITE;
-/*!40000 ALTER TABLE `TIMES` DISABLE KEYS */;
-/*!40000 ALTER TABLE `TIMES` ENABLE KEYS */;
+LOCK TABLES `CONDUCTOR` WRITE;
+/*!40000 ALTER TABLE `CONDUCTOR` DISABLE KEYS */;
+/*!40000 ALTER TABLE `CONDUCTOR` ENABLE KEYS */;
 UNLOCK TABLES;
+
 
 --
 -- Table structure for table `Apart_Of`
@@ -159,11 +136,11 @@ DROP TABLE IF EXISTS `Apart_Of`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Apart_Of` (
-  `ID` int(11) NOT NULL,
-  `name` char(255) NOT NULL,
+  `ID` int(11),
+  `name` char(255),
   `stationNumber` int(11) DEFAULT NULL,
-  CONSTRAINT `Apart_Of_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `ROUTES` (`ID`),
-  CONSTRAINT `Apart_Of_ibfk_2` FOREIGN KEY (`name`) REFERENCES `STATION` (`name`)
+  CONSTRAINT `Apart_Of_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `ROUTES` (`ID`) ON DELETE SET NULL,
+  CONSTRAINT `Apart_Of_ibfk_2` FOREIGN KEY (`name`) REFERENCES `STATION` (`name`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -175,6 +152,32 @@ CREATE TABLE `Apart_Of` (
 LOCK TABLES `Apart_Of` WRITE;
 /*!40000 ALTER TABLE `Apart_Of` DISABLE KEYS */;
 /*!40000 ALTER TABLE `Apart_Of` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `TIMES`
+--
+
+DROP TABLE IF EXISTS `TIMES`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `TIMES` (
+  `ID` char(255),
+  `ID2` int(11),
+  `arrivals` char(255) DEFAULT NULL,
+  PRIMARY KEY (`arrivals`),
+  CONSTRAINT `TIMES_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `STATION` (`name`) ON DELETE SET NULL,
+  CONSTRAINT `TIMES_ibfk_2` FOREIGN KEY (`ID2`) REFERENCES `TRAIN` (`ID`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `TIMES`
+--
+
+LOCK TABLES `TIMES` WRITE;
+/*!40000 ALTER TABLE `TIMES` DISABLE KEYS */;
+/*!40000 ALTER TABLE `TIMES` ENABLE KEYS */;
 UNLOCK TABLES;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

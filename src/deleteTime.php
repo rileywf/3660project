@@ -18,10 +18,9 @@ if(isset($_COOKIE["username"])) {
       echo "<br><br><a href=\"delete_Time.php\">Return</a> back to Time delete Page.";
     } else {
       echo "You got error code of $err. $errtext";
-      echo "<br><br><a href=\"main.php\">Return</a> to Home Page.";
+      echo "<a href=\"main.php\">Return</a> to Home Page.";
     }
   }
-  echo "<a href=\"main.php\">Return</a> to Home Page.";
   } else {
       echo "<h3>You are not logged in!</h3><p> <a href=\"index.php\">Login First</a></p>";
 }
