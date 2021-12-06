@@ -1,4 +1,7 @@
 <html>
+<head>
+<title>Railroad System</title>
+</head>
     <h1>Add a new Route</h1>
     <body>
         <form action="insertRoute.php" method=post>

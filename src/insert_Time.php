@@ -2,7 +2,7 @@
 <head>
 <title>Railroad System</title>
 </head>
-<h1>Pick a Train arrtival Time at Station</h1>
+<h1>Pick an Train Arrival Time at Station</h1>
 <body>
   <?php
     if(isset($_COOKIE["username"])) {
