@@ -130,8 +130,8 @@ DROP TABLE IF EXISTS `TIMES`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `TIMES` (
   `ID` char(255) NOT NULL,
-  `arrivals` char(255) DEFAULT NULL,
-  PRIMARY KEY ('ID',`arrivals`),
+  `arrivals` time DEFAULT NULL,
+  PRIMARY KEY (`arrivals`),
   CONSTRAINT `TIMES_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `STATION` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
