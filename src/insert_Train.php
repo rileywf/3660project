@@ -23,7 +23,7 @@
          Passanger Capacity: <input type=text name="pasg" value="" size=20><br><br>
 
          <input type=submit name="Submit" value="Insert">
-         <a href=\"main.php\">Return</a> to Home Page.
+         <br><br><a href=\"main.php\">Return</a> to Home Page.
 
   </body>
 </html>
