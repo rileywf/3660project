@@ -8,8 +8,7 @@
       echo "Connection Error!";
       exit;
     }
-
-    $sql = "insert into TIMES (ID. ID2, arrivals) value ('$_POST[name]','$_POST[id]','$_POST[AT]')";
+    $sql = "insert into TIMES (ID, ID2, arrivals) values ('$_POST[name]','$_POST[id]','$_POST[AT]')";
     if($conn->query($sql)) {
       echo "<h3>Time Added to Stations!</h3>";
     } else {
@@ -17,7 +16,7 @@
       if($err == 1062) {
         echo "<p>Station already has a time!</p>";
       } else {
-        echo "<p> MySQL error: $err </p>";
+        echo "<p> MySQL error: $err</p>";
       }
     }
     echo "<a href=\"main.php\">Return</a> to Home Page.";
